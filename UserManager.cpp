@@ -1,6 +1,8 @@
 #include "UserManager.h"
 
-UserManager::UserManager(string nameFileWithUsers) : fileWithUsers(nameFileWithUsers) {}
+UserManager::UserManager(string nameFileWithUsers) : fileWithUsers(nameFileWithUsers) {
+    users = fileWithUsers.loadUsersFromFile();
+}
 
 void UserManager::registerUser() {
     User user = giveDataOfNewUser();
@@ -47,4 +49,16 @@ bool UserManager::isLoginExists(string login) {
         }
     }
     return false;
+}
+
+void UserManager::showUsers()
+{
+    for (vector<User>::iterator itr = users.begin(); itr != users.end(); ++itr)
+    {
+        cout << itr->getUserId() << endl;
+        cout << itr->getName() << endl;
+        cout << itr->getSurname() << endl;
+        cout << itr->getLogin() << endl;
+        cout << itr->getPassword() << endl;
+    }
 }

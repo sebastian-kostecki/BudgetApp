@@ -13,6 +13,7 @@ class BudgetApp {
 public:
     BudgetApp(string nameFileWithUsers);
     void registerUser();
+    void showUsers();
 };
 
 #endif // BUDGETAPP_H
