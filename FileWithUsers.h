@@ -2,6 +2,7 @@
 #define FILEWITHUSERS_H
 
 #include <iostream>
+#include <vector>
 
 #include "User.h"
 #include "Markup.h"
@@ -22,6 +23,7 @@ class FileWithUsers
 public:
     FileWithUsers(string nameFileWithUsers);
     void addUserToFile(User user);
+    vector<User> loadUsersFromFile();
 };
 
 #endif // FILEWITHUSERS_H
