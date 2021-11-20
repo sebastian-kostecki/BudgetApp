@@ -1,12 +1,12 @@
 #include "FileWithUsers.h"
 
-FileWithUsers::FileWithUsers() : LABEL_OF_USERS("Users"), LABEL_OF_USER("User"), LABEL_OF_USER_ID("userId"), LABEL_OF_NAME("Name"), LABEL_OF_SURNAME("Surname"),
-LABEL_OF_LOGIN("Login"), LABEL_OF_PASSWORD("Password") {}
+FileWithUsers::FileWithUsers(string nameFileWithUsers) : LABEL_OF_USERS("Users"), LABEL_OF_USER("User"), LABEL_OF_USER_ID("userId"), LABEL_OF_NAME("Name"), LABEL_OF_SURNAME("Surname"),
+LABEL_OF_LOGIN("Login"), LABEL_OF_PASSWORD("Password"), NAME_FILE_WITH_USERS(nameFileWithUsers) {}
 
 void FileWithUsers::addUserToFile(User user)
 {
     CMarkup xml;
-    if (xml.Load("user.xml"))
+    if (xml.Load(NAME_FILE_WITH_USERS))
     {
         xml.FindElem(LABEL_OF_USERS);
         xml.IntoElem();
@@ -17,7 +17,7 @@ void FileWithUsers::addUserToFile(User user)
         xml.AddElem(LABEL_OF_SURNAME, user.getSurname());
         xml.AddElem(LABEL_OF_LOGIN, user.getLogin());
         xml.AddElem(LABEL_OF_PASSWORD, user.getPassword());
-        xml.Save("user.xml");
+        xml.Save(NAME_FILE_WITH_USERS);
     }
     else
     {
@@ -30,6 +30,6 @@ void FileWithUsers::addUserToFile(User user)
         xml.AddElem(LABEL_OF_SURNAME, user.getSurname());
         xml.AddElem(LABEL_OF_LOGIN, user.getLogin());
         xml.AddElem(LABEL_OF_PASSWORD, user.getPassword());
-        xml.Save("user.xml");
+        xml.Save(NAME_FILE_WITH_USERS);
     }
 }
