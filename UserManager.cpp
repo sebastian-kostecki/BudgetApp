@@ -1,9 +1,11 @@
 #include "UserManager.h"
 
+UserManager::UserManager(string nameFileWithUsers) : fileWithUsers(nameFileWithUsers) {}
+
 void UserManager::registerUser() {
     User user = giveDataOfNewUser();
     users.push_back(user);
-    fileWithUser.addUserToFile(user);
+    fileWithUsers.addUserToFile(user);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");

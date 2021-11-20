@@ -17,9 +17,10 @@ class FileWithUsers
     const string LABEL_OF_USER_ID;
     const string LABEL_OF_LOGIN;
     const string LABEL_OF_PASSWORD;
+    const string NAME_FILE_WITH_USERS;
 
 public:
-    FileWithUsers();
+    FileWithUsers(string nameFileWithUsers);
     void addUserToFile(User user);
 };
 

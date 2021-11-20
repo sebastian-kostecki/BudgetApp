@@ -11,6 +11,7 @@ class BudgetApp {
     UserManager userManager;
 
 public:
+    BudgetApp(string nameFileWithUsers);
     void registerUser();
 };
 
