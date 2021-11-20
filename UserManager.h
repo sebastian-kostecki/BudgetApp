@@ -23,6 +23,7 @@ class UserManager {
 public:
     UserManager(string nameFileWithUsers);
     void registerUser();
+    void showUsers();
 };
 
 #endif // USERMANAGER_H
