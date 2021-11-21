@@ -56,3 +56,21 @@ vector<User> FileWithUsers::loadUsersFromFile() {
     }
     return users;
 }
+
+void FileWithUsers::writeChangedUserPasswordToFile(int userId, string newPassword) {
+    CMarkup xml;
+    if (xml.Load(NAME_FILE_WITH_USERS)) {
+        xml.FindElem(LABEL_OF_USERS);
+        xml.IntoElem();
+        while (xml.FindElem(LABEL_OF_USER)) {
+            xml.IntoElem();
+            xml.FindElem(LABEL_OF_USER_ID);
+            if (AuxiliaryMethods::convertStringToInt(xml.GetData()) == userId) {
+                xml.FindElem(LABEL_OF_PASSWORD);
+                xml.SetData(newPassword);
+            }
+            xml.OutOfElem();
+        }
+        xml.Save(NAME_FILE_WITH_USERS);
+    }
+}

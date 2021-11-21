@@ -78,6 +78,5 @@ void UserManager::changeUserPassword()
             system("pause");
         }
     }
-
-    //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    fileWithUsers.writeChangedUserPasswordToFile(loggedInUserId, newPassword);
 }

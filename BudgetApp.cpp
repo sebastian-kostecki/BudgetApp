@@ -13,5 +13,5 @@ void BudgetApp::showUsers()
 
 void BudgetApp::changeUserPassword()
 {
-    //
+    userManager.changeUserPassword();
 }
