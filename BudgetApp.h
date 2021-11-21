@@ -4,14 +4,19 @@
 #include <iostream>
 
 #include "UserManager.h"
+#include "BudgetManager.h"
 
 using namespace std;
 
 class BudgetApp {
+    const string NAME_FILE_WITH_INCOMES;
+    const string NAME_FILE_WITH_EXPENSES;
     UserManager userManager;
+    BudgetManager *budgetManager;
 
 public:
-    BudgetApp(string nameFileWithUsers);
+    BudgetApp(string nameFileWithUsers, string nameFileWithIncomes, string nameFileWithExpenses);
+    ~BudgetApp();
     void registerUser();
     void changeUserPassword();
     void loginUser();
