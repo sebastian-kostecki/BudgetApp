@@ -115,3 +115,8 @@ bool UserManager::isUserLoggedIn() {
     else
         return false;
 }
+
+int UserManager::getLoggedInUserId()
+{
+    return loggedInUserId;
+}

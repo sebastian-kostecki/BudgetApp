@@ -1,15 +1,17 @@
 #ifndef BUDGETMANAGER_H
 #define BUDGETMANAGER_H
 
+#include <iostream>
+
+using namespace std;
 
 class BudgetManager
 {
-    public:
-        BudgetManager();
+    const int LOGGED_IN_USER_ID;
 
-    protected:
+public:
+    BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
 
-    private:
 };
 
 #endif // BUDGETMANAGER_H

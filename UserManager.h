@@ -22,6 +22,7 @@ class UserManager {
 
 public:
     UserManager(string nameFileWithUsers);
+    int getLoggedInUserId();
     void registerUser();
     void changeUserPassword();
     void loginUser();

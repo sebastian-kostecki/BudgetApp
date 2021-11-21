@@ -1,6 +1,9 @@
 #include "BudgetApp.h"
 
-BudgetApp::BudgetApp(string nameFileWithUsers) : userManager(nameFileWithUsers) {}
+BudgetApp::BudgetApp(string nameFileWithUsers, string nameFileWithIncomes, string nameFileWithExpenses)
+    : userManager(nameFileWithUsers), NAME_FILE_WITH_INCOMES(nameFileWithIncomes), NAME_FILE_WITH_EXPENSES(nameFileWithExpenses) {
+
+}
 
 void BudgetApp::registerUser() {
     userManager.registerUser();
@@ -17,6 +20,6 @@ void BudgetApp::changeUserPassword() {
 void BudgetApp::loginUser() {
     userManager.loginUser();
     if (userManager.isUserLoggedIn()) {
-        //create Login Panel For User
+        budgetManager = new BudgetManager(userManager.getLoggedInUserId(), NAME_FILE_WITH_INCOMES, NAME_FILE_WITH_EXPENSES);
     }
 }
