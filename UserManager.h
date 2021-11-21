@@ -23,7 +23,14 @@ class UserManager {
 public:
     UserManager(string nameFileWithUsers);
     void registerUser();
+    void changeUserPassword();
+
+
     void showUsers();
+    void setLoggedUserId(int id)
+    {
+        loggedInUserId = id;
+    }
 };
 
 #endif // USERMANAGER_H

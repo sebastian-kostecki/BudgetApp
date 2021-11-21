@@ -10,3 +10,8 @@ void BudgetApp::showUsers()
 {
     userManager.showUsers();
 }
+
+void BudgetApp::changeUserPassword()
+{
+    //
+}
