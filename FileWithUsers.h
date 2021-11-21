@@ -6,6 +6,7 @@
 
 #include "User.h"
 #include "Markup.h"
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ public:
     FileWithUsers(string nameFileWithUsers);
     void addUserToFile(User user);
     vector<User> loadUsersFromFile();
+    void writeChangedUserPasswordToFile(int userId, string newPassword);
 };
 
 #endif // FILEWITHUSERS_H

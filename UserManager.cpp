@@ -43,7 +43,7 @@ int UserManager::getNewUserId() {
 
 bool UserManager::isLoginExists(string login) {
     for (vector<User>::iterator itr = users.begin(); itr != users.end(); ++itr) {
-        if (itr->getLogin() ==  login) {
+        if (itr -> getLogin() ==  login) {
             cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
             return true;
         }
@@ -55,10 +55,28 @@ void UserManager::showUsers()
 {
     for (vector<User>::iterator itr = users.begin(); itr != users.end(); ++itr)
     {
-        cout << itr->getUserId() << endl;
-        cout << itr->getName() << endl;
-        cout << itr->getSurname() << endl;
-        cout << itr->getLogin() << endl;
-        cout << itr->getPassword() << endl;
+        cout << itr -> getUserId() << endl;
+        cout << itr -> getName() << endl;
+        cout << itr -> getSurname() << endl;
+        cout << itr -> getLogin() << endl;
+        cout << itr -> getPassword() << endl;
     }
+}
+
+void UserManager::changeUserPassword()
+{
+    string newPassword = "";
+    cout << "Podaj nowe haslo: ";
+    newPassword = AuxiliaryMethods::loadLine();
+
+    for (vector<User>::iterator itr = users.begin(); itr != users.end(); ++itr)
+    {
+        if (itr -> getUserId() == loggedInUserId)
+        {
+            itr -> setPassword(newPassword);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    fileWithUsers.writeChangedUserPasswordToFile(loggedInUserId, newPassword);
 }

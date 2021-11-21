@@ -5,3 +5,11 @@ string AuxiliaryMethods::loadLine() {
     getline(cin, input);
     return input;
 }
+
+int AuxiliaryMethods::convertStringToInt(string number) {
+    int integerNumber;
+    istringstream iss(number);
+    iss >> integerNumber;
+
+    return integerNumber;
+}
