@@ -6,12 +6,17 @@ void BudgetApp::registerUser() {
     userManager.registerUser();
 }
 
-void BudgetApp::showUsers()
-{
+void BudgetApp::showUsers() {
     userManager.showUsers();
 }
 
-void BudgetApp::changeUserPassword()
-{
+void BudgetApp::changeUserPassword() {
     userManager.changeUserPassword();
+}
+
+void BudgetApp::loginUser() {
+    userManager.loginUser();
+    if (userManager.isUserLoggedIn()) {
+        //create Login Panel For User
+    }
 }
