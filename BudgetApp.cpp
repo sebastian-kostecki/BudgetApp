@@ -2,7 +2,12 @@
 
 BudgetApp::BudgetApp(string nameFileWithUsers, string nameFileWithIncomes, string nameFileWithExpenses)
     : userManager(nameFileWithUsers), NAME_FILE_WITH_INCOMES(nameFileWithIncomes), NAME_FILE_WITH_EXPENSES(nameFileWithExpenses) {
+    budgetManager = nullptr;
+}
 
+BudgetApp::~BudgetApp() {
+    delete budgetManager;
+    budgetManager = nullptr;
 }
 
 void BudgetApp::registerUser() {
@@ -21,5 +26,6 @@ void BudgetApp::loginUser() {
     userManager.loginUser();
     if (userManager.isUserLoggedIn()) {
         budgetManager = new BudgetManager(userManager.getLoggedInUserId(), NAME_FILE_WITH_INCOMES, NAME_FILE_WITH_EXPENSES);
+        cout << "id to: " << budgetManager -> getId() << endl;
     }
 }

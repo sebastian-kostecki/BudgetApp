@@ -16,6 +16,7 @@ class BudgetApp {
 
 public:
     BudgetApp(string nameFileWithUsers, string nameFileWithIncomes, string nameFileWithExpenses);
+    ~BudgetApp();
     void registerUser();
     void changeUserPassword();
     void loginUser();
