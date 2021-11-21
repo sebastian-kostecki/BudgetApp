@@ -25,6 +25,7 @@ public:
     void registerUser();
     void changeUserPassword();
     void loginUser();
+    bool isUserLoggedIn();
 
 
     void showUsers();

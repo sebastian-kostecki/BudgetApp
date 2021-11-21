@@ -77,8 +77,7 @@ void UserManager::changeUserPassword() {
     fileWithUsers.writeChangedUserPasswordToFile(loggedInUserId, newPassword);
 }
 
-void UserManager::loginUser()
-{
+void UserManager::loginUser() {
     string login = "", password = "";
 
     cout << endl << "Podaj login: ";
@@ -108,4 +107,11 @@ void UserManager::loginUser()
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
     loggedInUserId = 0;
+}
+
+bool UserManager::isUserLoggedIn() {
+    if (loggedInUserId > 0)
+        return true;
+    else
+        return false;
 }
