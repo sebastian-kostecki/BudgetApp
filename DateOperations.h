@@ -12,6 +12,7 @@ class DateOperations
 {
 public:
     static int getDateInInteger();
+    static int getDateInIntegerFromUser();
 };
 
 #endif // DATEOPERATIONS_H

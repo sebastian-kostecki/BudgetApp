@@ -13,3 +13,16 @@ int DateOperations::getDateInInteger()
 
     return dateInteger;
 }
+
+int DateOperations::getDateInIntegerFromUser()
+{
+    int dateInteger = 0;
+    string date = "";
+
+    getline(cin, date);
+    date.erase(4, 1);
+    date.erase(6,1);
+    dateInteger = AuxiliaryMethods::convertStringToInt(date);
+
+    return dateInteger;
+}
