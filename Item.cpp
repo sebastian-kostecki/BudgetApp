@@ -21,7 +21,8 @@ double Item::getAmount() {
 }
 
 void Item::setId(int newId) {
-    id = newId;
+    if (newId > 0)
+        id = newId;
 }
 
 void Item::setUserId(int newUserId) {

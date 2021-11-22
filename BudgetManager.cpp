@@ -9,23 +9,11 @@ void BudgetManager::addIncome()
 
     system("cls");
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
+    item = giveDataOfIncome();
 
+    incomes.push_back(item);
 
-    /*
-    Adresat adresat;
-
-    system("cls");
-    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata();
-
-    adresaci.push_back(adresat);
-
-    if (plikZAdresatami.dopiszAdresataDoPliku(adresat))
-        cout << endl << "Adresat zostal dodany" << endl;
-    else
-        cout << endl << "Blad. Nie udalo sie dodac adresata do pliku" << endl;
-    system("pause");
-    */
+    //zapisanie do pliku
 }
 
 Item BudgetManager::giveDataOfIncome()
@@ -37,10 +25,10 @@ Item BudgetManager::giveDataOfIncome()
 
     switch (chooseDateTodayOrAnother())
     {
-    case 1:
+    case '1':
         item.setDate(DateOperations::getDateTodayInInteger());
         break;
-    case 2:
+    case '2':
         string date = "";
         do
         {
@@ -55,9 +43,9 @@ Item BudgetManager::giveDataOfIncome()
     item.setItem(AuxiliaryMethods::loadLine());
 
     cout << "Podaj kwote przychodu: ";
-    item.setAmount(AuxiliaryMethods::loadLine());
-    //zamienic przecinek na kropke
-    //moze zrobic wszystko w funkcji setAmount
+    item.setAmount(AuxiliaryMethods::convertStringToDouble(AuxiliaryMethods::loadLine()));
+
+    return item;
 }
 
 char BudgetManager::chooseDateTodayOrAnother()
@@ -68,7 +56,7 @@ char BudgetManager::chooseDateTodayOrAnother()
     cout << "2. NIE" << endl;
     cout << "Twoj wybor: ";
     choice = AuxiliaryMethods::loadSign();
-    while (choice != 1 || choice != 2)
+    while (choice != '1' && choice != '2')
     {
         cout << "Bledny wybor. Wybierz jeszcze raz: ";
         choice = AuxiliaryMethods::loadSign();
