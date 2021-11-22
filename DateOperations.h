@@ -2,12 +2,16 @@
 #define DATEOPERATIONS_H
 
 #include <iostream>
+#include <time.h>
+
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 
 class DateOperations
 {
-
+public:
+    static int getDateInInteger();
 };
 
 #endif // DATEOPERATIONS_H
