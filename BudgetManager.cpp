@@ -83,3 +83,14 @@ bool BudgetManager::isDateCorrect(string date)
         return false;
     return true;
 }
+
+void BudgetManager::displayIncomes()
+{
+    for (vector<Item>::iterator itr = incomes.begin(); itr != incomes.end(); ++itr)
+    {
+        cout << itr -> getId() << endl;
+        cout << itr -> getDate() << endl;
+        cout << itr -> getItem() << endl;
+        cout << itr -> getAmount() << endl;
+    }
+}

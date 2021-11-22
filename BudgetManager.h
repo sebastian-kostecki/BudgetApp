@@ -25,6 +25,8 @@ class BudgetManager
 public:
     BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
     void addIncome();
+
+    void displayIncomes();
 };
 
 #endif // BUDGETMANAGER_H
