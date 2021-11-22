@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+#include "Markup.h"
+
 using namespace std;
 
 class FileWithBudgetItems

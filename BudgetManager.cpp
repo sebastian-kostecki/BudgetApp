@@ -6,16 +6,9 @@ BudgetManager::BudgetManager(int loggedInUserId, string nameFileWithIncomes, str
 void BudgetManager::addIncome()
 {
     Item item;
-
     system("cls");
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
-
-    item.setId(fileWithIncomes.getLastItemId() + 1);
-    item.setUserId(LOGGED_IN_USER_ID);
-    item.setDate(getDateOfItem());
-    item.setItem(getNameOfItem());
-    item.setAmount(getAmountOfItem());
-
+    item = addContentToBudgetItem(fileWithIncomes);
     incomes.push_back(item);
 
     //zapisanie do pliku
@@ -24,19 +17,23 @@ void BudgetManager::addIncome()
 void BudgetManager::addExpense()
 {
     Item item;
-
     system("cls");
     cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;
+    item = addContentToBudgetItem(fileWithExpenses);
+    expenses.push_back(item);
 
-    item.setId(fileWithExpenses.getLastItemId() + 1);
+    //zapisanie do pliku
+}
+
+Item BudgetManager::addContentToBudgetItem(FileWithBudgetItems fileWithBudgetItems)
+{
+    Item item;
+    item.setId(fileWithBudgetItems.getLastItemId() + 1);
     item.setUserId(LOGGED_IN_USER_ID);
     item.setDate(getDateOfItem());
     item.setItem(getNameOfItem());
     item.setAmount(getAmountOfItem());
-
-    expenses.push_back(item);
-
-    //zapisanie do pliku
+    return item;
 }
 
 int BudgetManager::getDateOfItem()

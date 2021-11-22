@@ -19,6 +19,7 @@ class BudgetManager
     FileWithBudgetItems fileWithIncomes;
     FileWithBudgetItems fileWithExpenses;
 
+    Item addContentToBudgetItem(FileWithBudgetItems fileWithBudgetItems);
     char chooseDateTodayOrAnother();
     int getDateOfItem();
     string getNameOfItem();
