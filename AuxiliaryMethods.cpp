@@ -29,3 +29,35 @@ char AuxiliaryMethods::loadSign() {
     }
     return sign;
 }
+
+double AuxiliaryMethods::loadDouble()
+{
+    string input = "";
+    double number = 0;
+
+    while (true)
+    {
+        getline(cin, input);
+
+        stringstream myStream(input);
+        if (myStream >> number)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return number;
+}
+
+double AuxiliaryMethods::convertStringToDouble(string number)
+{
+    double integerNumber;
+
+    for (int i = 0; i < number.length(); i++)
+    {
+        if (number[i] == ',')
+            number.replace(i, 1, ".");
+    }
+    istringstream iss(number);
+    iss >> integerNumber;
+
+    return integerNumber;
+}
