@@ -18,9 +18,10 @@ class BudgetManager
     vector<Item> expenses;
     FileWithBudgetItems fileWithIncomes;
 
-    Item giveDataOfIncome();
     char chooseDateTodayOrAnother();
-    bool isDateCorrect(string date);
+    int getDateOfItem();
+    string getNameOfItem();
+    double getAmountOfItem();
 
 public:
     BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);

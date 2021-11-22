@@ -12,10 +12,12 @@ class DateOperations
 {
 public:
     static int getDateTodayInInteger();
-    static string getDateFromUser();
     static int getNumberOfDaysCurrentMonth();
     static int getNumberOfYearToday();
     static int getNumberOfMonthToday();
+    static string removeDashesFromDate(string date);
+    static string changeIntegerDateToStringWithDashes(int dateInt);
+    static bool isDateCorrect(string date);
 };
 
 #endif // DATEOPERATIONS_H

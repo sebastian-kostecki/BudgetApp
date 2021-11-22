@@ -44,3 +44,11 @@ double AuxiliaryMethods::convertStringToDouble(string number)
 
     return integerNumber;
 }
+
+string AuxiliaryMethods::convertIntegerToString(int number)
+{
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}

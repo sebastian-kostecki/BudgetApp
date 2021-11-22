@@ -14,14 +14,10 @@ int DateOperations::getDateTodayInInteger()
     return dateInteger;
 }
 
-string DateOperations::getDateFromUser()
+string DateOperations::removeDashesFromDate(string date)
 {
-    string date = "";
-
-    getline(cin, date);
     date.erase(4, 1);
     date.erase(6,1);
-
     return date;
 }
 
@@ -64,4 +60,41 @@ int DateOperations::getNumberOfMonthToday()
     strftime(date, sizeof(date), "%m", dateTime);
     monthInt = AuxiliaryMethods::convertStringToInt(date);
     return monthInt;
+}
+
+string DateOperations::changeIntegerDateToStringWithDashes(int dateInt)
+{
+    string dateStr = AuxiliaryMethods::convertIntegerToString(dateInt);
+    dateStr.insert(4, "-");
+    dateStr.insert(7, "-");
+    return dateStr;
+}
+
+bool DateOperations::isDateCorrect(string date)
+{
+    int yearInt = 0, monthInt = 0, daysInt = 0;
+    string yearString = "", monthString = "", daysString = "";
+    yearString = date.substr(0, 4);
+    yearInt = atoi(yearString.c_str());
+    monthString = date.substr(5, 2);
+    monthInt = atoi(monthString.c_str());
+    daysString = date.substr(8, 2);
+    daysInt = atoi(daysString.c_str());
+
+    if ((yearInt >= 2000 && yearInt <= DateOperations::getNumberOfYearToday()) == false)
+    {
+        cout << "Podana data jest nieprawidlowa!" << endl;
+        return false;
+    }
+    if ((monthInt > 0 && monthInt <= DateOperations::getNumberOfMonthToday()) == false)
+    {
+        cout << "Podana data jest nieprawidlowa!" << endl;
+        return false;
+    }
+    if ((daysInt > 0 && daysInt <= DateOperations::getNumberOfDaysCurrentMonth()) ==  false)
+    {
+        cout << "Podana data jest nieprawidlowa!" << endl;
+        return false;
+    }
+    return true;
 }

@@ -12,6 +12,7 @@ public:
     static int convertStringToInt(string number);
     static char loadSign();
     static double convertStringToDouble(string number);
+    static string convertIntegerToString(int number);
 };
 
 #endif // AUXILIARYMETHODS_H
