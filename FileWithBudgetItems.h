@@ -7,7 +7,12 @@ using namespace std;
 
 class FileWithBudgetItems
 {
+    int lastItemId;
+    const string NAME_FILE_WITH_BUDGET_ITEMS;
 
+public:
+    FileWithBudgetItems(string nameFileWithBudgetItems);
+    int getLastItemId();
 };
 
 #endif // FILEWITHBUDGETITEMS_H

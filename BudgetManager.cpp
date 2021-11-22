@@ -1,7 +1,7 @@
 #include "BudgetManager.h"
 
 BudgetManager::BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses)
-    : LOGGED_IN_USER_ID(loggedInUserId), fileWithIncomes(nameFileWithIncomes) {}
+    : LOGGED_IN_USER_ID(loggedInUserId), fileWithIncomes(nameFileWithIncomes), fileWithExpenses(nameFileWithExpenses) {}
 
 void BudgetManager::addIncome()
 {
@@ -17,6 +17,24 @@ void BudgetManager::addIncome()
     item.setAmount(getAmountOfItem());
 
     incomes.push_back(item);
+
+    //zapisanie do pliku
+}
+
+void BudgetManager::addExpense()
+{
+    Item item;
+
+    system("cls");
+    cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;
+
+    item.setId(fileWithExpenses.getLastItemId() + 1);
+    item.setUserId(LOGGED_IN_USER_ID);
+    item.setDate(getDateOfItem());
+    item.setItem(getNameOfItem());
+    item.setAmount(getAmountOfItem());
+
+    expenses.push_back(item);
 
     //zapisanie do pliku
 }

@@ -1,6 +1,11 @@
 #include "FileWithBudgetItems.h"
 
-FileWithBudgetItems::FileWithBudgetItems()
+FileWithBudgetItems::FileWithBudgetItems(string nameFileWithBudgetItems) : NAME_FILE_WITH_BUDGET_ITEMS(nameFileWithBudgetItems)
 {
-    //ctor
+    lastItemId = 0;
+}
+
+int FileWithBudgetItems::getLastItemId()
+{
+    return lastItemId;
 }

@@ -17,6 +17,7 @@ class BudgetManager
     vector<Item> incomes;
     vector<Item> expenses;
     FileWithBudgetItems fileWithIncomes;
+    FileWithBudgetItems fileWithExpenses;
 
     char chooseDateTodayOrAnother();
     int getDateOfItem();
@@ -26,6 +27,7 @@ class BudgetManager
 public:
     BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
     void addIncome();
+    void addExpense();
 
     void displayIncomes();
 };
