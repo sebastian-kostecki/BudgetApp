@@ -2,8 +2,8 @@
 
 BudgetManager::BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses)
     : LOGGED_IN_USER_ID(loggedInUserId), fileWithIncomes(nameFileWithIncomes), fileWithExpenses(nameFileWithExpenses) {
-    incomes = fileWithIncomes.loadBudgetItemFromFile();
-    expenses = fileWithExpenses.loadBudgetItemFromFile();
+    incomes = fileWithIncomes.loadBudgetItemFromFile(LOGGED_IN_USER_ID);
+    expenses = fileWithExpenses.loadBudgetItemFromFile(LOGGED_IN_USER_ID);
 }
 
 void BudgetManager::addIncome()
@@ -11,7 +11,7 @@ void BudgetManager::addIncome()
     Item item;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
-    item = addContentToBudgetItem(fileWithIncomes);
+    item = addContentToBudgetItem(fileWithIncomes.getLastItemId());
     incomes.push_back(item);
     fileWithIncomes.addIncomeToFile(item);
 }
@@ -21,15 +21,15 @@ void BudgetManager::addExpense()
     Item item;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;
-    item = addContentToBudgetItem(fileWithExpenses);
+    item = addContentToBudgetItem(fileWithExpenses.getLastItemId());
     expenses.push_back(item);
     fileWithExpenses.addExpenseToFile(item);
 }
 
-Item BudgetManager::addContentToBudgetItem(FileWithBudgetItems fileWithBudgetItems)
+Item BudgetManager::addContentToBudgetItem(int lastItemId)
 {
     Item item;
-    item.setId(fileWithBudgetItems.getLastItemId() + 1);
+    item.setId(lastItemId + 1);
     item.setUserId(LOGGED_IN_USER_ID);
     item.setDate(getDateOfItem());
     item.setItem(getNameOfItem());
@@ -102,4 +102,9 @@ void BudgetManager::displayIncomes()
         cout << itr -> getItem() << endl;
         cout << itr -> getAmount() << endl << endl;
     }
+}
+
+void BudgetManager::displayBalanceCurrentMonth()
+{
+
 }

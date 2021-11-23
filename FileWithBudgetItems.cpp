@@ -9,7 +9,7 @@ int FileWithBudgetItems::getLastItemId() {
     return lastItemId;
 }
 
-vector<Item> FileWithBudgetItems::loadBudgetItemFromFile() {
+vector<Item> FileWithBudgetItems::loadBudgetItemFromFile(int loggedUserId) {
     Item item;
     vector<Item> items;
     CMarkup xml;
@@ -30,7 +30,8 @@ vector<Item> FileWithBudgetItems::loadBudgetItemFromFile() {
             item.setItem(xml.GetData());
             xml.FindElem();
             item.setAmount(AuxiliaryMethods::convertStringToDouble(xml.GetData()));
-            items.push_back(item);
+            if (loggedUserId == item.getUserId())
+                items.push_back(item);
             xml.OutOfElem();
         }
     }

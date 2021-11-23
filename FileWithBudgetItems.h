@@ -22,7 +22,7 @@ protected:
 public:
     FileWithBudgetItems(string nameFileWithBudgetItems);
     int getLastItemId();
-    vector<Item> loadBudgetItemFromFile();
+    vector<Item> loadBudgetItemFromFile(int loggedUserId);
 };
 
 #endif // FILEWITHBUDGETITEMS_H
