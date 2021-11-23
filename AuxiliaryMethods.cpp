@@ -52,3 +52,11 @@ string AuxiliaryMethods::convertIntegerToString(int number)
     string str = ss.str();
     return str;
 }
+
+string AuxiliaryMethods::convertDoubleNumberToString(double number)
+{
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
