@@ -1,7 +1,10 @@
 #include "BudgetManager.h"
 
 BudgetManager::BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses)
-    : LOGGED_IN_USER_ID(loggedInUserId), fileWithIncomes(nameFileWithIncomes), fileWithExpenses(nameFileWithExpenses) {}
+    : LOGGED_IN_USER_ID(loggedInUserId), fileWithIncomes(nameFileWithIncomes), fileWithExpenses(nameFileWithExpenses) {
+    incomes = fileWithIncomes.loadBudgetItemFromFile();
+    expenses = fileWithExpenses.loadBudgetItemFromFile();
+}
 
 void BudgetManager::addIncome()
 {
@@ -97,6 +100,6 @@ void BudgetManager::displayIncomes()
         cout << itr -> getId() << endl;
         cout << DateOperations::changeIntegerDateToStringWithDashes(itr -> getDate()) << endl;
         cout << itr -> getItem() << endl;
-        cout << itr -> getAmount() << endl;
+        cout << itr -> getAmount() << endl << endl;
     }
 }
