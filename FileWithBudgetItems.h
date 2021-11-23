@@ -2,6 +2,11 @@
 #define FILEWITHBUDGETITEMS_H
 
 #include <iostream>
+#include <vector>
+#include "Markup.h"
+#include "Item.h"
+#include "AuxiliaryMethods.h"
+#include "DateOperations.h"
 
 using namespace std;
 
@@ -17,6 +22,7 @@ protected:
 public:
     FileWithBudgetItems(string nameFileWithBudgetItems);
     int getLastItemId();
+    vector<Item> loadBudgetItemFromFile();
 };
 
 #endif // FILEWITHBUDGETITEMS_H
