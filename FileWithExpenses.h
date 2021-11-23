@@ -4,14 +4,17 @@
 #include <iostream>
 
 #include "Markup.h"
-#include "BudgetManager.h"
+#include "FileWithBudgetItems.h"
 
 using namespace std;
 
 class FileWithExpenses :public FileWithBudgetItems
 {
     const string LABEL_OF_EXPENSES;
-    const string LABEL_OF_EXPENS_ID;
+    const string LABEL_OF_EXPENSE_ID;
+
+public:
+    FileWithExpenses(string nameFileWithExpenses);
 };
 
 #endif // FILEWITHEXPENSES_H

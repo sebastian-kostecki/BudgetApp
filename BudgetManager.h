@@ -7,6 +7,8 @@
 #include "Item.h"
 #include "AuxiliaryMethods.h"
 #include "FileWithBudgetItems.h"
+#include "FileWithIncomes.h"
+#include "FileWithExpenses.h"
 #include "DateOperations.h"
 
 using namespace std;
@@ -16,8 +18,8 @@ class BudgetManager
     const int LOGGED_IN_USER_ID;
     vector<Item> incomes;
     vector<Item> expenses;
-    FileWithBudgetItems fileWithIncomes;
-    FileWithBudgetItems fileWithExpenses;
+    FileWithIncomes fileWithIncomes;
+    FileWithExpenses fileWithExpenses;
 
     Item addContentToBudgetItem(FileWithBudgetItems fileWithBudgetItems);
     char chooseDateTodayOrAnother();
