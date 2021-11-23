@@ -28,4 +28,5 @@ void FileWithIncomes::addIncomeToFile(Item item) {
         xml.AddElem(LABEL_OF_AMOUNT, AuxiliaryMethods::convertDoubleNumberToString(item.getAmount()));
         xml.Save(NAME_FILE_WITH_BUDGET_ITEMS);
     }
+    lastItemId++;
 }

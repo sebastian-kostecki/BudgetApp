@@ -21,7 +21,7 @@ class BudgetManager
     FileWithIncomes fileWithIncomes;
     FileWithExpenses fileWithExpenses;
 
-    Item addContentToBudgetItem(FileWithBudgetItems fileWithBudgetItems);
+    Item addContentToBudgetItem(int lastItemId);
     char chooseDateTodayOrAnother();
     int getDateOfItem();
     string getNameOfItem();
@@ -31,6 +31,7 @@ public:
     BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
     void addIncome();
     void addExpense();
+    void displayBalanceCurrentMonth();
 
     void displayIncomes();
 };
