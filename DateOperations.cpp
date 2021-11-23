@@ -81,20 +81,54 @@ bool DateOperations::isDateCorrect(string date)
     daysString = date.substr(8, 2);
     daysInt = atoi(daysString.c_str());
 
-    if ((yearInt >= 2000 && yearInt <= DateOperations::getNumberOfYearToday()) == false)
+    if (yearInt < 2000 || yearInt > getNumberOfYearToday())
     {
         cout << "Podana data jest nieprawidlowa!" << endl;
         return false;
     }
-    if ((monthInt > 0 && monthInt <= DateOperations::getNumberOfMonthToday()) == false)
+    else if (yearInt == getNumberOfYearToday() && (monthInt < 1 || monthInt > getNumberOfMonthToday()))
     {
         cout << "Podana data jest nieprawidlowa!" << endl;
         return false;
     }
-    if ((daysInt > 0 && daysInt <= DateOperations::getNumberOfDaysCurrentMonth()) ==  false)
+    else if (yearInt != getNumberOfYearToday() && (monthInt < 1 || monthInt > 12))
+    {
+        cout << "Podana data jest nieprawidlowa!" << endl;
+        return false;
+    }
+    else if (daysInt < 0 || daysInt > getNumberOfDaysForChosenDate(yearInt, monthInt))
     {
         cout << "Podana data jest nieprawidlowa!" << endl;
         return false;
     }
     return true;
+}
+
+int DateOperations::getNumberOfDaysForChosenDate(int year, int month)
+{
+    int dni = 0;
+    year = year - 1900;
+    month = month - 1;
+    int dayInSeconds = 24*60*60;
+    time_t timeInSeconds;
+    struct tm *dateTime;
+    time(&timeInSeconds);
+    dateTime = localtime(&timeInSeconds);
+
+    if (month < 11)
+    {
+        dateTime->tm_year = year;
+        dateTime->tm_mon = month + 1;
+    }
+    else
+    {
+        dateTime->tm_year = year + 1;
+        dateTime->tm_mon = 0;
+    }
+    dateTime->tm_mday = 1;
+    timeInSeconds = mktime(dateTime);
+    timeInSeconds = timeInSeconds - dayInSeconds;
+    dateTime = localtime(&timeInSeconds);
+    dni = dateTime->tm_mday;
+    return dateTime->tm_mday;
 }

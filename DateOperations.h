@@ -18,6 +18,7 @@ public:
     static string removeDashesFromDate(string date);
     static string changeIntegerDateToStringWithDashes(int dateInt);
     static bool isDateCorrect(string date);
+    static int getNumberOfDaysForChosenDate(int year, int month);
 };
 
 #endif // DATEOPERATIONS_H
