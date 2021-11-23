@@ -10,8 +10,7 @@ void BudgetManager::addIncome()
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
     item = addContentToBudgetItem(fileWithIncomes);
     incomes.push_back(item);
-
-    //zapisanie do pliku
+    fileWithIncomes.addIncomeToFile(item);
 }
 
 void BudgetManager::addExpense()
@@ -21,8 +20,7 @@ void BudgetManager::addExpense()
     cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;
     item = addContentToBudgetItem(fileWithExpenses);
     expenses.push_back(item);
-
-    //zapisanie do pliku
+    fileWithExpenses.addExpenseToFile(item);
 }
 
 Item BudgetManager::addContentToBudgetItem(FileWithBudgetItems fileWithBudgetItems)

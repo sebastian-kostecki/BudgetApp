@@ -3,12 +3,10 @@
 
 #include <iostream>
 
-#include "Markup.h"
-
 using namespace std;
 
-class FileWithBudgetItems
-{
+class FileWithBudgetItems {
+protected:
     int lastItemId;
     const string NAME_FILE_WITH_BUDGET_ITEMS;
     const string LABEL_OF_USER_ID;

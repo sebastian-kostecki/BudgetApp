@@ -13,6 +13,7 @@ public:
     static char loadSign();
     static double convertStringToDouble(string number);
     static string convertIntegerToString(int number);
+    static string convertDoubleNumberToString(double number);
 };
 
 #endif // AUXILIARYMETHODS_H
