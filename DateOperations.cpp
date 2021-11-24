@@ -106,7 +106,7 @@ bool DateOperations::isDateCorrect(string date)
 
 int DateOperations::getNumberOfDaysForChosenDate(int year, int month)
 {
-    int dni = 0;
+    int numberOfMonthsDaysChosenDate = 0;
     year = year - 1900;
     month = month - 1;
     int dayInSeconds = 24*60*60;
@@ -126,9 +126,32 @@ int DateOperations::getNumberOfDaysForChosenDate(int year, int month)
         dateTime->tm_mon = 0;
     }
     dateTime->tm_mday = 1;
+
     timeInSeconds = mktime(dateTime);
     timeInSeconds = timeInSeconds - dayInSeconds;
     dateTime = localtime(&timeInSeconds);
-    dni = dateTime->tm_mday;
+    numberOfMonthsDaysChosenDate = dateTime->tm_mday;
     return dateTime->tm_mday;
+}
+
+bool DateOperations::isDateBelongsToCurrentMonth(int dateInt)
+{
+    int yearInt = 0, monthInt = 0;
+    string yearString = "", monthString = "";
+    string date = AuxiliaryMethods::convertIntegerToString(dateInt);
+
+    time_t timeInSeconds;
+    struct tm *dateTime;
+    time(&timeInSeconds);
+    dateTime = localtime(&timeInSeconds);
+
+    yearString = date.substr(0,4);
+    yearInt = atoi(yearString.c_str()) - 1900;
+    monthString = date.substr(4,2);
+    monthInt = atoi(monthString.c_str()) - 1;
+
+    if (dateTime->tm_year == yearInt && dateTime->tm_mon == monthInt)
+        return true;
+    else
+        return false;
 }

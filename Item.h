@@ -24,6 +24,11 @@ public:
     void setDate(int newDate);
     void setItem(string newItem);
     void setAmount(double newAmount);
+
+    bool operator < (const Item& rhs)
+    {
+        return this -> date < rhs.date;
+    }
 };
 
 #endif // ITEM_H

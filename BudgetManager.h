@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <iomanip>
 
 #include "Item.h"
 #include "AuxiliaryMethods.h"
@@ -26,6 +28,10 @@ class BudgetManager
     int getDateOfItem();
     string getNameOfItem();
     double getAmountOfItem();
+    vector<Item> selectCurrentMonthIncomes(double &sumOfIncomes);
+    vector<Item> selectCurrentMonthExpenses(double &sumOfExpenses);
+    void displayBudgetItem(Item item, int counter);
+    void displayBudgetItems(vector<Item> budgetItem);
 
 public:
     BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);

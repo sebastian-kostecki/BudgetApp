@@ -19,6 +19,7 @@ public:
     static string changeIntegerDateToStringWithDashes(int dateInt);
     static bool isDateCorrect(string date);
     static int getNumberOfDaysForChosenDate(int year, int month);
+    static bool isDateBelongsToCurrentMonth(int dateInt);
 };
 
 #endif // DATEOPERATIONS_H
