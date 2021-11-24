@@ -15,6 +15,9 @@ class Expenses :public Turnover
 {
     vector<User> expenses;
     FileWithExpenses fileWithExpenses;
+
+public:
+    Expenses(string nameFileWithExpenses);
 };
 
 #endif // EXPENSES_H

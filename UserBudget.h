@@ -13,8 +13,10 @@ class UserBudget
 {
     const int LOGGED_IN_USER_ID;
     Incomes incomes;
-    Expenses Expenses;
+    Expenses expenses;
 
+public:
+    UserBudget(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
 };
 
 #endif // USERBUDGET_H
