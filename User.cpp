@@ -20,22 +20,22 @@ string User::getPassword() {
     return password;
 }
 
-void User::setUserId(int newUserId) {
-    userId = newUserId;
+void User::setUserId(int userId) {
+    this -> userId = userId;
 }
 
-void User::setName(string newName) {
-    name = newName;
+void User::setName(string name) {
+    this -> name = name;
 }
 
-void User::setSurname(string newSurname) {
-    surname = newSurname;
+void User::setSurname(string surname) {
+    this -> surname = surname;
 }
 
-void User::setLogin(string newLogin) {
-    login = newLogin;
+void User::setLogin(string login) {
+    this -> login = login;
 }
 
-void User::setPassword(string newPassword) {
-    password = newPassword;
+void User::setPassword(string password) {
+    this -> password = password;
 }

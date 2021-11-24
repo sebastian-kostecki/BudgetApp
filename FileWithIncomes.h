@@ -18,7 +18,7 @@ class FileWithIncomes :public FileWithBudgetItems {
 
 public:
     FileWithIncomes(string nameFileOfIncomes);
-    void addIncomeToFile(Item item);
+    void addBudgetItemToFile(Item item);
 };
 
 #endif // FILEWITHINCOMES_H

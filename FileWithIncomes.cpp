@@ -3,7 +3,7 @@
 FileWithIncomes::FileWithIncomes(string nameFileOfIncomes)
     : FileWithBudgetItems(nameFileOfIncomes), LABEL_OF_INCOMES("incomes"), LABEL_OF_INCOME("income"), LABEL_OF_INCOME_ID("incomeId") {}
 
-void FileWithIncomes::addIncomeToFile(Item item) {
+void FileWithIncomes::addBudgetItemToFile(Item item) {
     CMarkup xml;
     if (xml.Load(NAME_FILE_WITH_BUDGET_ITEMS)) {
         xml.FindElem(LABEL_OF_INCOMES);

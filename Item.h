@@ -19,16 +19,12 @@ public:
     int getDate();
     string getItem();
     double getAmount();
-    void setId(int newId);
-    void setUserId(int newUserId);
-    void setDate(int newDate);
-    void setItem(string newItem);
-    void setAmount(double newAmount);
-
-    bool operator < (const Item& rhs)
-    {
-        return this -> date < rhs.date;
-    }
+    void setId(int id);
+    void setUserId(int userId);
+    void setDate(int date);
+    void setItem(string item);
+    void setAmount(double amount);
+    bool operator < (const Item& rhs);
 };
 
 #endif // ITEM_H

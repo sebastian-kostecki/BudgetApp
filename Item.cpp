@@ -20,23 +20,27 @@ double Item::getAmount() {
     return amount;
 }
 
-void Item::setId(int newId) {
-    if (newId > 0)
-        id = newId;
+void Item::setId(int id) {
+    if (id > 0)
+        this -> id = id;
 }
 
-void Item::setUserId(int newUserId) {
-    userId = newUserId;
+void Item::setUserId(int userId) {
+    this -> userId = userId;
 }
 
-void Item::setDate(int newDate) {
-    date = newDate;
+void Item::setDate(int date) {
+    this -> date = date;
 }
 
-void Item::setItem(string newItem) {
-    item = newItem;
+void Item::setItem(string item) {
+    this -> item = item;
 }
 
-void Item::setAmount(double newAmount) {
-    amount = newAmount;
+void Item::setAmount(double amount) {
+    this -> amount = amount;
+}
+
+bool Item::operator < (const Item& rhs) {
+    return this -> date < rhs.date;
 }

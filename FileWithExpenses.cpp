@@ -3,7 +3,7 @@
 FileWithExpenses::FileWithExpenses(string nameFileWithExpenses)
     : FileWithBudgetItems(nameFileWithExpenses), LABEL_OF_EXPENSES("expenses"), LABEL_OF_EXPENSE("expense"), LABEL_OF_EXPENSE_ID("expenseId") {}
 
-void FileWithExpenses::addExpenseToFile(Item item) {
+void FileWithExpenses::addBudgetItemToFile(Item item) {
     CMarkup xml;
     if (xml.Load(NAME_FILE_WITH_BUDGET_ITEMS)) {
         xml.FindElem(LABEL_OF_EXPENSES);
