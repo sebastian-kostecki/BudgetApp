@@ -12,7 +12,7 @@ void BudgetManager::addIncome() {
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
     item = addContentToBudgetItem(fileWithIncomes.getLastItemId());
     incomes.push_back(item);
-    fileWithIncomes.addIncomeToFile(item);
+    fileWithIncomes.addBudgetItemToFile(item);
 }
 
 void BudgetManager::addExpense() {
@@ -21,7 +21,7 @@ void BudgetManager::addExpense() {
     cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;
     item = addContentToBudgetItem(fileWithExpenses.getLastItemId());
     expenses.push_back(item);
-    fileWithExpenses.addExpenseToFile(item);
+    fileWithExpenses.addBudgetItemToFile(item);
 }
 
 Item BudgetManager::addContentToBudgetItem(int lastItemId) {
