@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "UserManager.h"
-#include "BudgetManager.h"
+#include "UserBudget.h"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ class BudgetApp {
     const string NAME_FILE_WITH_INCOMES;
     const string NAME_FILE_WITH_EXPENSES;
     UserManager userManager;
-    BudgetManager *budgetManager;
+    UserBudget *userBudget;
 
 public:
     BudgetApp(string nameFileWithUsers, string nameFileWithIncomes, string nameFileWithExpenses);
