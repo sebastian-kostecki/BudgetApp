@@ -17,6 +17,7 @@ class UserBudget
 public:
     UserBudget(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
     void addIncome();
+    void addExpense();
 };
 
 #endif // USERBUDGET_H

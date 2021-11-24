@@ -1,6 +1,8 @@
 #include "Expenses.h"
 
-Expenses::Expenses(string nameFileWithExpenses, int loggedInUserId) : fileWithExpenses(nameFileWithExpenses) {};
+Expenses::Expenses(string nameFileWithExpenses, int loggedInUserId) : fileWithExpenses(nameFileWithExpenses) {
+    budgetItems = fileWithExpenses.loadBudgetItemFromFile(loggedInUserId);
+}
 
 void Expenses::addExpense(int loggedInUserId)
 {
