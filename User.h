@@ -18,11 +18,11 @@ public:
     string getSurname();
     string getLogin();
     string getPassword();
-    void setUserId(int newUserId);
-    void setName(string newName);
-    void setSurname(string newSurname);
-    void setLogin(string newLogin);
-    void setPassword(string newPassword);
+    void setUserId(int userId);
+    void setName(string name);
+    void setSurname(string surname);
+    void setLogin(string login);
+    void setPassword(string password);
 };
 
 #endif // USER_H
