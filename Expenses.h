@@ -16,7 +16,8 @@ class Expenses :public BudgetItem
     FileWithExpenses fileWithExpenses;
 
 public:
-    Expenses(string nameFileWithExpenses);
+    Expenses(string nameFileWithExpenses, int loggedInUserId);
+    void addExpense(int loggedInUserId);
 };
 
 #endif // EXPENSES_H
