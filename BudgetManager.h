@@ -26,6 +26,8 @@ class BudgetManager
     int getDateOfItem();
     string getNameOfItem();
     double getAmountOfItem();
+    vector<Item> selectCurrentMonthIncomes();
+    vector<Item> selectCurrentMonthExpenses();
 
 public:
     BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);

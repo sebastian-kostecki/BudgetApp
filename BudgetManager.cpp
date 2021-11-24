@@ -6,8 +6,7 @@ BudgetManager::BudgetManager(int loggedInUserId, string nameFileWithIncomes, str
     expenses = fileWithExpenses.loadBudgetItemFromFile(LOGGED_IN_USER_ID);
 }
 
-void BudgetManager::addIncome()
-{
+void BudgetManager::addIncome() {
     Item item;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
@@ -16,8 +15,7 @@ void BudgetManager::addIncome()
     fileWithIncomes.addIncomeToFile(item);
 }
 
-void BudgetManager::addExpense()
-{
+void BudgetManager::addExpense() {
     Item item;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;
@@ -26,8 +24,7 @@ void BudgetManager::addExpense()
     fileWithExpenses.addExpenseToFile(item);
 }
 
-Item BudgetManager::addContentToBudgetItem(int lastItemId)
-{
+Item BudgetManager::addContentToBudgetItem(int lastItemId) {
     Item item;
     item.setId(lastItemId + 1);
     item.setUserId(LOGGED_IN_USER_ID);
@@ -37,18 +34,15 @@ Item BudgetManager::addContentToBudgetItem(int lastItemId)
     return item;
 }
 
-int BudgetManager::getDateOfItem()
-{
+int BudgetManager::getDateOfItem() {
     int dateInt;
-    switch (chooseDateTodayOrAnother())
-    {
+    switch (chooseDateTodayOrAnother()) {
     case '1':
         dateInt = DateOperations::getDateTodayInInteger();
         break;
     case '2':
         string date = "";
-        do
-        {
+        do {
             cout << "Podaj date (rrrr-mm-dd): ";
             date = AuxiliaryMethods::loadLine();
         } while (DateOperations::isDateCorrect(date) == false);
@@ -59,16 +53,14 @@ int BudgetManager::getDateOfItem()
     return dateInt;
 }
 
-string BudgetManager::getNameOfItem()
-{
+string BudgetManager::getNameOfItem() {
     string nameOfItem = "";
     cout << endl << "Podaj nazwe: ";
     nameOfItem = AuxiliaryMethods::loadLine();
     return nameOfItem;
 }
 
-double BudgetManager::getAmountOfItem()
-{
+double BudgetManager::getAmountOfItem() {
     double amountOfItem = 0;
     string amountOfItemAsString = "";
     cout << "Podaj kwote: ";
@@ -77,26 +69,22 @@ double BudgetManager::getAmountOfItem()
     return amountOfItem;
 }
 
-char BudgetManager::chooseDateTodayOrAnother()
-{
+char BudgetManager::chooseDateTodayOrAnother() {
     char choice;
     cout << "Czy dotyczy dnia dzisiejszego?" << endl;
     cout << "1. TAK" << endl;
     cout << "2. NIE" << endl;
     cout << "Twoj wybor: ";
     choice = AuxiliaryMethods::loadSign();
-    while (choice != '1' && choice != '2')
-    {
+    while (choice != '1' && choice != '2') {
         cout << "Bledny wybor. Wybierz jeszcze raz: ";
         choice = AuxiliaryMethods::loadSign();
     }
     return choice;
 }
 
-void BudgetManager::displayIncomes()
-{
-    for (vector<Item>::iterator itr = incomes.begin(); itr != incomes.end(); ++itr)
-    {
+void BudgetManager::displayIncomes() {
+    for (vector<Item>::iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
         cout << itr -> getId() << endl;
         cout << DateOperations::changeIntegerDateToStringWithDashes(itr -> getDate()) << endl;
         cout << itr -> getItem() << endl;
@@ -104,7 +92,26 @@ void BudgetManager::displayIncomes()
     }
 }
 
-void BudgetManager::displayBalanceCurrentMonth()
-{
+void BudgetManager::displayBalanceCurrentMonth() {
+    double sumOfIncomes = 0, sumOfExpenses = 0;
+    vector<Item> incomesCurrentMonth = selectCurrentMonthIncomes();
+    vector<Item> expensesCurrentMonth = selectCurrentMonthExpenses();
+}
 
+vector<Item> BudgetManager::selectCurrentMonthIncomes() {
+    vector<Item> incomesCurrentMonth;
+    for (vector<Item>::iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
+        if (DateOperations::isDateBelongsToCurrentMonth(itr -> getDate()))
+            incomesCurrentMonth.push_back(*itr);
+    }
+    return incomesCurrentMonth;
+}
+
+vector<Item> BudgetManager::selectCurrentMonthExpenses() {
+    vector<Item> expensesCurrentMonth;
+    for (vector<Item>::iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {
+        if (DateOperations::isDateBelongsToCurrentMonth(itr -> getDate()))
+            expensesCurrentMonth.push_back(*itr);
+    }
+    return expensesCurrentMonth;
 }
