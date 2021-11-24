@@ -28,6 +28,8 @@ class BudgetManager
     double getAmountOfItem();
     vector<Item> selectCurrentMonthIncomes();
     vector<Item> selectCurrentMonthExpenses();
+    void displayBudgetItem(Item item);
+    void displayBudgetItems(vector<Item> budgetItem);
 
 public:
     BudgetManager(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);

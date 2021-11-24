@@ -93,9 +93,13 @@ void BudgetManager::displayIncomes() {
 }
 
 void BudgetManager::displayBalanceCurrentMonth() {
-    double sumOfIncomes = 0, sumOfExpenses = 0;
+    //double sumOfIncomes = 0, sumOfExpenses = 0;
     vector<Item> incomesCurrentMonth = selectCurrentMonthIncomes();
     vector<Item> expensesCurrentMonth = selectCurrentMonthExpenses();
+    //sortowanie wektorow
+    displayBudgetItems(incomesCurrentMonth);
+    cout << "-------" << endl;
+    displayBudgetItems(expensesCurrentMonth);
 }
 
 vector<Item> BudgetManager::selectCurrentMonthIncomes() {
@@ -114,4 +118,19 @@ vector<Item> BudgetManager::selectCurrentMonthExpenses() {
             expensesCurrentMonth.push_back(*itr);
     }
     return expensesCurrentMonth;
+}
+
+void BudgetManager::displayBudgetItems(vector<Item> budgetItem)
+{
+    for (vector<Item>::iterator itr = budgetItem.begin(); itr != budgetItem.end(); ++itr)
+    {
+        displayBudgetItem(*itr);
+    }
+}
+
+void BudgetManager::displayBudgetItem(Item item)
+{
+    cout << DateOperations::changeIntegerDateToStringWithDashes(item.getDate()) << " ";
+    cout << item.getItem() << " ";
+    cout << item.getAmount() << " zl" << endl;
 }
