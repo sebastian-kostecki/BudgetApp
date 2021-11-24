@@ -97,6 +97,8 @@ void BudgetManager::displayBalanceCurrentMonth() {
     vector<Item> incomesCurrentMonth = selectCurrentMonthIncomes();
     vector<Item> expensesCurrentMonth = selectCurrentMonthExpenses();
     //sortowanie wektorow
+    sort(incomesCurrentMonth.begin(), incomesCurrentMonth.end());
+    sort(expensesCurrentMonth.begin(), expensesCurrentMonth.end());
     displayBudgetItems(incomesCurrentMonth);
     cout << "-------" << endl;
     displayBudgetItems(expensesCurrentMonth);

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "Item.h"
 #include "AuxiliaryMethods.h"
