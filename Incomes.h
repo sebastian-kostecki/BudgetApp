@@ -16,7 +16,7 @@ class Incomes :public BudgetItem
     FileWithIncomes fileWithIncomes;
 
 public:
-    Incomes(string nameFileWithIncomes);
+    Incomes(string nameFileWithIncomes, int loggedInUserId);
     void addIncome(int loggedInUserId);
 };
 

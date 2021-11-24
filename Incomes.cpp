@@ -1,6 +1,8 @@
 #include "Incomes.h"
 
-Incomes::Incomes(string nameFileWithIncomes) : fileWithIncomes(nameFileWithIncomes) {};
+Incomes::Incomes(string nameFileWithIncomes, int loggedInUserId) : fileWithIncomes(nameFileWithIncomes) {
+    budgetItems = fileWithIncomes.loadBudgetItemFromFile(loggedInUserId);
+};
 
 void Incomes::addIncome(int loggedInUserId)
 {
