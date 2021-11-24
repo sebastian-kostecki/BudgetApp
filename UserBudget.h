@@ -5,7 +5,6 @@
 
 #include "Incomes.h"
 #include "Expenses.h"
-#include "AuxiliaryMethods.h"
 
 using namespace std;
 
@@ -17,6 +16,7 @@ class UserBudget
 
 public:
     UserBudget(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
+    void addIncome();
 };
 
 #endif // USERBUDGET_H

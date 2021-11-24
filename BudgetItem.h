@@ -1,5 +1,5 @@
-#ifndef TURNOVER_H
-#define TURNOVER_H
+#ifndef BUDGETITEM_H
+#define BUDGETITEM_H
 
 #include <iostream>
 
@@ -9,9 +9,9 @@
 
 using namespace std;
 
-class Turnover
+class BudgetItem
 {
 
 };
 
-#endif // TURNOVER_H
+#endif // BUDGETITEM_H
