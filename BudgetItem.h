@@ -20,6 +20,10 @@ protected:
     string getNameOfItem();
     double getAmountOfItem();
     char selectDateTodayOrAnother();
+
+public:
+    vector<Item> selectBudgetItemCurrentMonth();
+    static double sumAmountOfBudgetItems(vector<Item> items);
 };
 
 #endif // BUDGETITEM_H
