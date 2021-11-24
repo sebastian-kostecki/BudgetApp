@@ -18,7 +18,7 @@ class FileWithExpenses :public FileWithBudgetItems {
 
 public:
     FileWithExpenses(string nameFileWithExpenses);
-    void addExpenseToFile(Item item);
+    void addBudgetItemToFile(Item item);
 };
 
 #endif // FILEWITHEXPENSES_H

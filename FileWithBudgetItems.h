@@ -23,6 +23,7 @@ public:
     FileWithBudgetItems(string nameFileWithBudgetItems);
     int getLastItemId();
     vector<Item> loadBudgetItemFromFile(int loggedUserId);
+    virtual void addBudgetItemToFile(Item item) = 0;
 };
 
 #endif // FILEWITHBUDGETITEMS_H
