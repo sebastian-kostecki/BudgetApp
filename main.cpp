@@ -50,7 +50,7 @@ int user_main() {
 //test BudgetManager
 #include "BudgetManager.h"
 
-int main()
+int manager_main()
 {
     BudgetManager budget(1, "incomes-test.xml", "expenses-test.xml");
     //budget.addIncome();
@@ -59,6 +59,15 @@ int main()
     //budget.addExpense();
     //budget.displayIncomes();
     //budget.addExpense();
+    budget.displayBalanceCurrentMonth();
+}
+
+//testy UserBudget
+#include "UserBudget.h"
+
+int main()
+{
+    UserBudget budget(1, "incomes-test.xml", "expenses-test.xml");
     budget.displayBalanceCurrentMonth();
 }
 
