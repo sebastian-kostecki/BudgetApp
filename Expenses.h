@@ -13,7 +13,6 @@ using namespace std;
 
 class Expenses :public BudgetItem
 {
-    vector<User> expenses;
     FileWithExpenses fileWithExpenses;
 
 public:

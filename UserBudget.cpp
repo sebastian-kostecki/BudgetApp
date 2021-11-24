@@ -5,6 +5,6 @@ UserBudget::UserBudget(int loggedInUserId, string nameFileWithIncomes, string na
 
 void UserBudget::addIncome()
 {
-    incomes.addIncome();
+    incomes.addIncome(LOGGED_IN_USER_ID);
 }
 

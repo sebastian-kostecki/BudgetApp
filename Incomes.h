@@ -13,12 +13,11 @@ using namespace std;
 
 class Incomes :public BudgetItem
 {
-    vector<User> incomes;
     FileWithIncomes fileWithIncomes;
 
 public:
     Incomes(string nameFileWithIncomes);
-    void addIncome();
+    void addIncome(int loggedInUserId);
 };
 
 #endif // INCOMES_H
