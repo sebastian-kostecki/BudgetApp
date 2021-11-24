@@ -93,46 +93,64 @@ void BudgetManager::displayIncomes() {
 }
 
 void BudgetManager::displayBalanceCurrentMonth() {
-    //double sumOfIncomes = 0, sumOfExpenses = 0;
-    vector<Item> incomesCurrentMonth = selectCurrentMonthIncomes();
-    vector<Item> expensesCurrentMonth = selectCurrentMonthExpenses();
-    //sortowanie wektorow
+    double sumOfIncomes = 0, sumOfExpenses = 0;
+    vector<Item> incomesCurrentMonth = selectCurrentMonthIncomes(sumOfIncomes);
+    vector<Item> expensesCurrentMonth = selectCurrentMonthExpenses(sumOfExpenses);
+
     sort(incomesCurrentMonth.begin(), incomesCurrentMonth.end());
     sort(expensesCurrentMonth.begin(), expensesCurrentMonth.end());
+    cout << "                    BILANS OBECNEGO MIESIACA                   " << endl;
+    cout << "---------------------------------------------------------------" << endl;
+    cout << "                            PRZYCHODY                          " << endl << endl;
     displayBudgetItems(incomesCurrentMonth);
-    cout << "-------" << endl;
+    cout << endl << "---------------------------------------------------------------" << endl;
+    cout << "                             WYDATKI                           " << endl << endl;
     displayBudgetItems(expensesCurrentMonth);
+    cout << endl << "---------------------------------------------------------------" << endl;
+    cout << setw(11) << left << "PRZYCHODY:" << setw(10) << right << sumOfIncomes << " zl" << endl;
+    cout << setw(11) << left << "WYDATKI:" <<  setw(10) << right << sumOfExpenses << " zl" << endl << endl;
+    cout << setw(11) << left << "BILANS:" <<  setw(10) << right << sumOfIncomes - sumOfExpenses << " zl" << endl;
 }
 
-vector<Item> BudgetManager::selectCurrentMonthIncomes() {
+vector<Item> BudgetManager::selectCurrentMonthIncomes(double &sumOfIncomes) {
     vector<Item> incomesCurrentMonth;
     for (vector<Item>::iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
         if (DateOperations::isDateBelongsToCurrentMonth(itr -> getDate()))
+        {
+            sumOfIncomes += itr -> getAmount();
             incomesCurrentMonth.push_back(*itr);
+        }
     }
     return incomesCurrentMonth;
 }
 
-vector<Item> BudgetManager::selectCurrentMonthExpenses() {
+vector<Item> BudgetManager::selectCurrentMonthExpenses(double &sumOfExpenses) {
     vector<Item> expensesCurrentMonth;
     for (vector<Item>::iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {
         if (DateOperations::isDateBelongsToCurrentMonth(itr -> getDate()))
+        {
+            sumOfExpenses += itr -> getAmount();
             expensesCurrentMonth.push_back(*itr);
+        }
     }
     return expensesCurrentMonth;
 }
 
 void BudgetManager::displayBudgetItems(vector<Item> budgetItem)
 {
+    int counter = 1;
+    cout << "-Lp.------Data-----------------Nazwa------------------Kwota----" << endl << endl;
     for (vector<Item>::iterator itr = budgetItem.begin(); itr != budgetItem.end(); ++itr)
     {
-        displayBudgetItem(*itr);
+        displayBudgetItem(*itr, counter);
+        counter++;
     }
 }
 
-void BudgetManager::displayBudgetItem(Item item)
+void BudgetManager::displayBudgetItem(Item item, int counter)
 {
-    cout << DateOperations::changeIntegerDateToStringWithDashes(item.getDate()) << " ";
-    cout << item.getItem() << " ";
-    cout << item.getAmount() << " zl" << endl;
+    cout << setw(4) << right << counter << ".| ";
+    cout << DateOperations::changeIntegerDateToStringWithDashes(item.getDate()) << "  ";
+    cout << setw(30) << left << item.getItem() << " ";
+    cout << setw(10) << right << item.getAmount() << " zl" << endl;
 }
