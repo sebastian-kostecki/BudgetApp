@@ -1,7 +1,6 @@
 #include "DateOperations.h"
 
-int DateOperations::getDateTodayInInteger()
-{
+int DateOperations::getDateTodayInInteger() {
     int dateInteger;
     char date[64];
     time_t timeInSeconds;
@@ -14,15 +13,13 @@ int DateOperations::getDateTodayInInteger()
     return dateInteger;
 }
 
-string DateOperations::removeDashesFromDate(string date)
-{
+string DateOperations::removeDashesFromDate(string date) {
     date.erase(4, 1);
     date.erase(6,1);
     return date;
 }
 
-int DateOperations::getNumberOfDaysCurrentMonth()
-{
+int DateOperations::getNumberOfDaysCurrentMonth() {
     int dayInSeconds = 24*60*60;
     time_t timeInSeconds;
     struct tm *dateTime;
@@ -36,8 +33,7 @@ int DateOperations::getNumberOfDaysCurrentMonth()
     return dateTime->tm_mday;
 }
 
-int DateOperations::getNumberOfYearToday()
-{
+int DateOperations::getNumberOfYearToday() {
     int yearInt;
     char date[64];
     time_t timeInSeconds;
@@ -49,8 +45,7 @@ int DateOperations::getNumberOfYearToday()
     return yearInt;
 }
 
-int DateOperations::getNumberOfMonthToday()
-{
+int DateOperations::getNumberOfMonthToday() {
     int monthInt;
     char date[64];
     time_t timeInSeconds;
@@ -62,16 +57,14 @@ int DateOperations::getNumberOfMonthToday()
     return monthInt;
 }
 
-string DateOperations::changeIntegerDateToStringWithDashes(int dateInt)
-{
+string DateOperations::changeIntegerDateToStringWithDashes(int dateInt) {
     string dateStr = AuxiliaryMethods::convertIntegerToString(dateInt);
     dateStr.insert(4, "-");
     dateStr.insert(7, "-");
     return dateStr;
 }
 
-bool DateOperations::isDateCorrect(string date)
-{
+bool DateOperations::isDateCorrect(string date) {
     int yearInt = 0, monthInt = 0, daysInt = 0;
     string yearString = "", monthString = "", daysString = "";
     yearString = date.substr(0, 4);
@@ -81,31 +74,23 @@ bool DateOperations::isDateCorrect(string date)
     daysString = date.substr(8, 2);
     daysInt = atoi(daysString.c_str());
 
-    if (yearInt < 2000 || yearInt > getNumberOfYearToday())
-    {
+    if (yearInt < 2000 || yearInt > getNumberOfYearToday()) {
         cout << "Podana data jest nieprawidlowa!" << endl;
         return false;
-    }
-    else if (yearInt == getNumberOfYearToday() && (monthInt < 1 || monthInt > getNumberOfMonthToday()))
-    {
+    } else if (yearInt == getNumberOfYearToday() && (monthInt < 1 || monthInt > getNumberOfMonthToday())) {
         cout << "Podana data jest nieprawidlowa!" << endl;
         return false;
-    }
-    else if (yearInt != getNumberOfYearToday() && (monthInt < 1 || monthInt > 12))
-    {
+    } else if (yearInt != getNumberOfYearToday() && (monthInt < 1 || monthInt > 12)) {
         cout << "Podana data jest nieprawidlowa!" << endl;
         return false;
-    }
-    else if (daysInt < 0 || daysInt > getNumberOfDaysForChosenDate(yearInt, monthInt))
-    {
+    } else if (daysInt < 0 || daysInt > getNumberOfDaysForChosenDate(yearInt, monthInt)) {
         cout << "Podana data jest nieprawidlowa!" << endl;
         return false;
     }
     return true;
 }
 
-int DateOperations::getNumberOfDaysForChosenDate(int year, int month)
-{
+int DateOperations::getNumberOfDaysForChosenDate(int year, int month) {
     int numberOfMonthsDaysChosenDate = 0;
     year = year - 1900;
     month = month - 1;
@@ -115,13 +100,10 @@ int DateOperations::getNumberOfDaysForChosenDate(int year, int month)
     time(&timeInSeconds);
     dateTime = localtime(&timeInSeconds);
 
-    if (month < 11)
-    {
+    if (month < 11) {
         dateTime->tm_year = year;
         dateTime->tm_mon = month + 1;
-    }
-    else
-    {
+    } else {
         dateTime->tm_year = year + 1;
         dateTime->tm_mon = 0;
     }
@@ -134,8 +116,7 @@ int DateOperations::getNumberOfDaysForChosenDate(int year, int month)
     return dateTime->tm_mday;
 }
 
-bool DateOperations::isDateBelongsToCurrentMonth(int dateInt)
-{
+bool DateOperations::isDateBelongsToCurrentMonth(int dateInt) {
     int yearInt = 0, monthInt = 0;
     string yearString = "", monthString = "";
     string date = AuxiliaryMethods::convertIntegerToString(dateInt);
@@ -151,6 +132,27 @@ bool DateOperations::isDateBelongsToCurrentMonth(int dateInt)
     monthInt = atoi(monthString.c_str()) - 1;
 
     if (dateTime->tm_year == yearInt && dateTime->tm_mon == monthInt)
+        return true;
+    else
+        return false;
+}
+
+bool DateOperations::isDateBelongsToPreviousMonth(int dateInt) {
+    int yearInt = 0, monthInt = 0;
+    string yearString = "", monthString = "";
+    string date = AuxiliaryMethods::convertIntegerToString(dateInt);
+
+    time_t timeInSeconds;
+    struct tm *dateTime;
+    time(&timeInSeconds);
+    dateTime = localtime(&timeInSeconds);
+
+    yearString = date.substr(0,4);
+    yearInt = atoi(yearString.c_str()) - 1900;
+    monthString = date.substr(4,2);
+    monthInt = atoi(monthString.c_str()) - 1;
+
+    if (dateTime->tm_year == yearInt && dateTime->tm_mon - 1 == monthInt)
         return true;
     else
         return false;

@@ -14,6 +14,7 @@ class BudgetItem
 {
 protected:
     vector<Item> budgetItems;
+    double *totalOfBudgetItems;
 
     Item addContentToBudgetItem(int lastItemId, int loggedInUserId);
     int getDateOfItem();
@@ -22,7 +23,8 @@ protected:
     char selectDateTodayOrAnother();
 
 public:
-    vector<Item> selectBudgetItemCurrentMonth();
+    vector<Item> selectBudgetItemsCurrentMonth();
+    vector<Item> selectBudgetItemsPreviousMonth();
     static double sumAmountOfBudgetItems(vector<Item> items);
 };
 

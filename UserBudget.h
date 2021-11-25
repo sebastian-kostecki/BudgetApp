@@ -21,12 +21,14 @@ class UserBudget
     void displayBudgetItems(vector<Item> budgetItem);
     void displayItem(Item item, int counter);
     void displayTitleOfBalanceCurrentMonth();
+    void displayTitleOfBalancePreviousMonth();
 
 public:
     UserBudget(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
     void addIncome();
     void addExpense();
     void displayBalanceCurrentMonth();
+    void displayBalancePreviousMonth();
 };
 
 #endif // USERBUDGET_H

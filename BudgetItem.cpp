@@ -59,13 +59,23 @@ char BudgetItem::selectDateTodayOrAnother() {
     return choice;
 }
 
-vector<Item> BudgetItem::selectBudgetItemCurrentMonth() {
+vector<Item> BudgetItem::selectBudgetItemsCurrentMonth() {
     vector<Item> currentMonthBudgetItems;
     for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
         if (DateOperations::isDateBelongsToCurrentMonth(itr -> getDate()))
             currentMonthBudgetItems.push_back(*itr);
     }
     return currentMonthBudgetItems;
+}
+
+vector<Item> BudgetItem::selectBudgetItemsPreviousMonth()
+{
+    vector<Item> previousMonthBudgetItems;
+     for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
+        if (DateOperations::isDateBelongsToPreviousMonth(itr -> getDate()))
+            previousMonthBudgetItems.push_back(*itr);
+    }
+    return previousMonthBudgetItems;
 }
 
 double BudgetItem::sumAmountOfBudgetItems(vector<Item> items)

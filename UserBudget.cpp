@@ -12,16 +12,31 @@ void UserBudget::addExpense() {
 }
 
 void UserBudget::displayBalanceCurrentMonth() {
-    vector<Item> incomesCurrentMonth = incomes.selectBudgetItemCurrentMonth();
-    vector<Item> expensesCurrentMonth = expenses.selectBudgetItemCurrentMonth();
+    vector<Item> incomesCurrentMonth = incomes.selectBudgetItemsCurrentMonth();
+    vector<Item> expensesCurrentMonth = expenses.selectBudgetItemsCurrentMonth();
     sort(incomesCurrentMonth.begin(), incomesCurrentMonth.end());
     sort(expensesCurrentMonth.begin(), expensesCurrentMonth.end());
     displayTitleOfBalanceCurrentMonth();
     displayBalance(incomesCurrentMonth, expensesCurrentMonth);
 }
 
+void UserBudget::displayBalancePreviousMonth()
+{
+    vector<Item> incomesPreviousMonth = incomes.selectBudgetItemsPreviousMonth();
+    vector<Item> expensesPreviousMonth = expenses.selectBudgetItemsPreviousMonth();
+    sort(incomesPreviousMonth.begin(), incomesPreviousMonth.end());
+    sort(expensesPreviousMonth.begin(), expensesPreviousMonth.end());
+    displayTitleOfBalancePreviousMonth();
+    displayBalance(incomesPreviousMonth, expensesPreviousMonth);
+}
+
 void UserBudget::displayTitleOfBalanceCurrentMonth() {
     cout << "                    BILANS OBECNEGO MIESIACA                   " << endl;
+}
+
+void UserBudget::displayTitleOfBalancePreviousMonth()
+{
+    cout << "                  BILANS POPRZEDNIEGO MIESIACA                 " << endl;
 }
 
 void UserBudget::displayBalance(vector<Item> selectedIncomes, vector<Item> selectedExpenses) {
@@ -55,4 +70,3 @@ void UserBudget::displayItem(Item item, int counter) {
     cout << setw(30) << left << item.getItem() << " ";
     cout << setw(10) << right << item.getAmount() << " zl" << endl;
 }
-
