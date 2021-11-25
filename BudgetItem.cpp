@@ -77,6 +77,16 @@ vector<Item> BudgetItem::selectBudgetItemsPreviousMonth() {
     return previousMonthBudgetItems;
 }
 
+vector<Item> BudgetItem::selectBudgetItemsChosenPeriod(string startingDate, string endDate)
+{
+    vector<Item> chosenPeriodBudgetItems;
+    for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
+        if (DateOperations::isDateBelongsToChosenPeriod(itr -> getDate(), startingDate, endDate))
+            chosenPeriodBudgetItems.push_back(*itr);
+    }
+    return chosenPeriodBudgetItems;
+}
+
 double BudgetItem::sumAmountOfBudgetItems(vector<Item> items) {
     double sum = 0;
     for (vector<Item>::iterator itr = items.begin(); itr != items.end(); ++itr) {

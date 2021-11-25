@@ -24,6 +24,7 @@ protected:
 public:
     vector<Item> selectBudgetItemsCurrentMonth();
     vector<Item> selectBudgetItemsPreviousMonth();
+    vector<Item> selectBudgetItemsChosenPeriod(string startingDate, string endDate);
     double sumAmountOfBudgetItems(vector<Item> items);
 };
 

@@ -21,6 +21,10 @@ public:
     static int getNumberOfDaysForChosenDate(int year, int month);
     static bool isDateBelongsToCurrentMonth(int dateInt);
     static bool isDateBelongsToPreviousMonth(int dateInt);
+    static bool isDateBelongsToChosenPeriod(int dateInt, string startingDate, string endDate);
+    static int getIntegerNumberOfYearFromDate(string date);
+    static int getIntegerNumberOfMonthFromDate(string date);
+    static int getIntegerNumberOfDaysFromDate(string date);
 };
 
 #endif // DATEOPERATIONS_H
