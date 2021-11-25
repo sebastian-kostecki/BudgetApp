@@ -24,3 +24,10 @@ void BudgetApp::loginUser() {
         userBudget = new UserBudget(userManager.getLoggedInUserId(), NAME_FILE_WITH_INCOMES, NAME_FILE_WITH_EXPENSES);
     }
 }
+
+void BudgetApp::logoutUser()
+{
+    userManager.logoutUser();
+    delete userBudget;
+    userBudget = nullptr;
+}

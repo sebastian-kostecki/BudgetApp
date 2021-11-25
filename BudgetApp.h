@@ -20,6 +20,7 @@ public:
     void registerUser();
     void changeUserPassword();
     void loginUser();
+    void logoutUser();
 
 
 
