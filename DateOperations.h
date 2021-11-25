@@ -10,6 +10,7 @@ using namespace std;
 
 class DateOperations
 {
+
 public:
     static int getDateTodayInInteger();
     static int getNumberOfDaysCurrentMonth();

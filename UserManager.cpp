@@ -52,16 +52,6 @@ bool UserManager::isLoginExists(string login) {
     return false;
 }
 
-void UserManager::showUsers() {
-    for (vector<User>::iterator itr = users.begin(); itr != users.end(); ++itr) {
-        cout << itr -> getUserId() << endl;
-        cout << itr -> getName() << endl;
-        cout << itr -> getSurname() << endl;
-        cout << itr -> getLogin() << endl;
-        cout << itr -> getPassword() << endl;
-    }
-}
-
 void UserManager::changeUserPassword() {
     string newPassword = "";
     cout << "Podaj nowe haslo: ";
@@ -116,7 +106,10 @@ bool UserManager::isUserLoggedIn() {
         return false;
 }
 
-int UserManager::getLoggedInUserId()
-{
+int UserManager::getLoggedInUserId() {
     return loggedInUserId;
+}
+
+void UserManager::logoutUser() {
+    loggedInUserId = 0;
 }
