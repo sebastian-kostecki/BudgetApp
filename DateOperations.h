@@ -20,6 +20,7 @@ public:
     static bool isDateCorrect(string date);
     static int getNumberOfDaysForChosenDate(int year, int month);
     static bool isDateBelongsToCurrentMonth(int dateInt);
+    static bool isDateBelongsToPreviousMonth(int dateInt);
 };
 
 #endif // DATEOPERATIONS_H

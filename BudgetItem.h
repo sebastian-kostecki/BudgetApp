@@ -22,8 +22,9 @@ protected:
     char selectDateTodayOrAnother();
 
 public:
-    vector<Item> selectBudgetItemCurrentMonth();
-    static double sumAmountOfBudgetItems(vector<Item> items);
+    vector<Item> selectBudgetItemsCurrentMonth();
+    vector<Item> selectBudgetItemsPreviousMonth();
+    double sumAmountOfBudgetItems(vector<Item> items);
 };
 
 #endif // BUDGETITEM_H
