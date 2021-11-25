@@ -4,11 +4,54 @@
 
 using namespace std;
 
-int _main() {
+int main() {
     BudgetApp budgetApp("users.xml", "incomes.xml", "expenses.xml");
-    //budgetApp.registerUser();
-    budgetApp.showUsers();
-    //budgetApp.loginUser();
+
+    while (true) {
+        if (!(budgetApp.isUserLogin())) {
+            switch (budgetApp.selectOptionFromMainMenu()) {
+            case '1':
+                budgetApp.registerUser();
+                break;
+            case '2':
+                budgetApp.loginUser();
+                break;
+            case '9':
+                exit(0);
+                break;
+            default:
+                budgetApp.displayStatementWhenUserMakeWrongChoice();
+                break;
+            }
+        } else {
+            switch (budgetApp.selectOptionFormUserMenu()) {
+            case '1':
+                budgetApp.addIncome();
+                break;
+            case '2':
+                budgetApp.addExpense();
+                break;
+            case '3':
+                budgetApp.displayBalanceCurrentMonth();
+                break;
+            case '4':
+                budgetApp.displayBalancePreviousMonth();
+                break;
+            case '5':
+                budgetApp.displayBalanceChosenPeriod();
+                break;
+            case '6':
+                budgetApp.changeUserPassword();
+                break;
+            case '9':
+                budgetApp.logoutUser();
+                break;
+            default:
+                budgetApp.displayStatementWhenUserMakeWrongChoice();
+                break;
+            }
+        }
+    }
     return 0;
 }
 
@@ -46,28 +89,15 @@ int user_main() {
 }
 
 
-
-//test BudgetManager
-#include "BudgetManager.h"
-
-int manager_main()
-{
-    BudgetManager budget(1, "incomes-test.xml", "expenses-test.xml");
-    //budget.addIncome();
-    //budget.addExpense();
-    //budget.addIncome();
-    //budget.addExpense();
-    //budget.displayIncomes();
-    //budget.addExpense();
-    budget.displayBalanceCurrentMonth();
-}
-
 //testy UserBudget
 #include "UserBudget.h"
 
-int main()
-{
+int us_main() {
     UserBudget budget(1, "incomes-test.xml", "expenses-test.xml");
-    budget.displayBalanceCurrentMonth();
+    //budget.displayBalanceCurrentMonth();
+    //budget.displayBalancePreviousMonth();
+    budget.displayBalanceChosenPeriod();
+    //budget.addExpense();
+    //budget.addIncome();
 }
 
