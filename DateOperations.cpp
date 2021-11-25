@@ -157,3 +157,42 @@ bool DateOperations::isDateBelongsToPreviousMonth(int dateInt) {
     else
         return false;
 }
+
+bool DateOperations::isDateBelongsToChosenPeriod(int dateInt, string startingDate, string endDate)
+{
+    string dateString = changeIntegerDateToStringWithDashes(dateInt);
+    if (getIntegerNumberOfYearFromDate(dateString) < getIntegerNumberOfYearFromDate(startingDate) || getIntegerNumberOfYearFromDate(dateString) > getIntegerNumberOfYearFromDate(endDate))
+        return false;
+    else if (getIntegerNumberOfYearFromDate(dateString) == getIntegerNumberOfYearFromDate(startingDate) && getIntegerNumberOfMonthFromDate(dateString) < getIntegerNumberOfMonthFromDate(startingDate))
+        return false;
+    else if (getIntegerNumberOfYearFromDate(dateString) == getIntegerNumberOfYearFromDate(endDate) && getIntegerNumberOfMonthFromDate(dateString) > getIntegerNumberOfMonthFromDate(endDate))
+        return false;
+    else if (getIntegerNumberOfYearFromDate(dateString) == getIntegerNumberOfYearFromDate(startingDate) && getIntegerNumberOfMonthFromDate(dateString) == getIntegerNumberOfMonthFromDate(startingDate)
+             && getIntegerNumberOfDaysFromDate(dateString) < getIntegerNumberOfDaysFromDate(startingDate))
+                return false;
+    else if (getIntegerNumberOfYearFromDate(dateString) == getIntegerNumberOfYearFromDate(endDate) && getIntegerNumberOfMonthFromDate(dateString) == getIntegerNumberOfMonthFromDate(endDate)
+             && getIntegerNumberOfDaysFromDate(dateString) > getIntegerNumberOfDaysFromDate(endDate))
+                return false;
+    return true;
+}
+
+int DateOperations::getIntegerNumberOfYearFromDate(string date)
+{
+    string yearString = date.substr(0,4);
+    int yearInteger = atoi(yearString.c_str()) - 1900;
+    return yearInteger;
+}
+
+int DateOperations::getIntegerNumberOfMonthFromDate(string date)
+{
+    string monthString = date.substr(5, 2);
+    int monthInteger = atoi(monthString.c_str());
+    return monthInteger;
+}
+
+int DateOperations::getIntegerNumberOfDaysFromDate(string date)
+{
+    string daysString = date.substr(8, 2);
+    int daysInteger = atoi(daysString.c_str());
+    return daysInteger;
+}

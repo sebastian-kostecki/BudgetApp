@@ -22,6 +22,7 @@ class UserBudget
     void displayItem(Item item, int counter);
     void displayTitleOfBalanceCurrentMonth();
     void displayTitleOfBalancePreviousMonth();
+    void displayTitleOfBalanceChosenPeriod(string startingDate, string endDate);
 
 public:
     UserBudget(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
@@ -29,6 +30,7 @@ public:
     void addExpense();
     void displayBalanceCurrentMonth();
     void displayBalancePreviousMonth();
+    void displayBalanceChosenPeriod();
 };
 
 #endif // USERBUDGET_H
