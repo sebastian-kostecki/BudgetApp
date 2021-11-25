@@ -26,6 +26,10 @@ public:
     void displayBalanceCurrentMonth();
     void displayBalancePreviousMonth();
     void displayBalanceChosenPeriod();
+    bool isUserLogin();
+    char selectOptionFromMainMenu();
+    char selectOptionFormUserMenu();
+    void displayStatementWhenUserMakeWrongChoice();
 };
 
 #endif // BUDGETAPP_H

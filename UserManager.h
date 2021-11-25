@@ -28,6 +28,8 @@ public:
     void loginUser();
     void logoutUser();
     bool isUserLoggedIn();
+    char selectOptionFromMainMenu();
+    char selectOptionFormUserMenu();
 };
 
 #endif // USERMANAGER_H

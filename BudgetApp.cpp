@@ -52,3 +52,23 @@ void BudgetApp::displayBalancePreviousMonth() {
 void BudgetApp::displayBalanceChosenPeriod() {
     userBudget->displayBalanceChosenPeriod();
 }
+
+bool BudgetApp::isUserLogin() {
+    if (userManager.isUserLoggedIn())
+        return true;
+    else
+        return false;
+}
+
+char BudgetApp::selectOptionFromMainMenu() {
+    return userManager.selectOptionFromMainMenu();
+}
+
+char BudgetApp::selectOptionFormUserMenu() {
+    return userManager.selectOptionFormUserMenu();
+}
+
+void BudgetApp::displayStatementWhenUserMakeWrongChoice() {
+    cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+    system("pause");
+}
