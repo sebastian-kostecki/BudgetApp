@@ -25,9 +25,30 @@ void BudgetApp::loginUser() {
     }
 }
 
-void BudgetApp::logoutUser()
-{
+void BudgetApp::logoutUser() {
     userManager.logoutUser();
     delete userBudget;
     userBudget = nullptr;
+}
+
+void BudgetApp::addIncome() {
+    if (userManager.isUserLoggedIn())
+        userBudget->addIncome();
+}
+
+void BudgetApp::addExpense() {
+    if (userManager.isUserLoggedIn())
+        userBudget->addExpense();
+}
+
+void BudgetApp::displayBalanceCurrentMonth() {
+    userBudget->displayBalanceCurrentMonth();
+}
+
+void BudgetApp::displayBalancePreviousMonth() {
+    userBudget->displayBalancePreviousMonth();
+}
+
+void BudgetApp::displayBalanceChosenPeriod() {
+    userBudget->displayBalanceChosenPeriod();
 }

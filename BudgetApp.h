@@ -21,10 +21,11 @@ public:
     void changeUserPassword();
     void loginUser();
     void logoutUser();
-
-
-
-    void showUsers();
+    void addIncome();
+    void addExpense();
+    void displayBalanceCurrentMonth();
+    void displayBalancePreviousMonth();
+    void displayBalanceChosenPeriod();
 };
 
 #endif // BUDGETAPP_H
