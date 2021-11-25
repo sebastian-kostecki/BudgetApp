@@ -20,10 +20,16 @@ public:
     void registerUser();
     void changeUserPassword();
     void loginUser();
-
-
-
-    void showUsers();
+    void logoutUser();
+    void addIncome();
+    void addExpense();
+    void displayBalanceCurrentMonth();
+    void displayBalancePreviousMonth();
+    void displayBalanceChosenPeriod();
+    bool isUserLogin();
+    char selectOptionFromMainMenu();
+    char selectOptionFormUserMenu();
+    void displayStatementWhenUserMakeWrongChoice();
 };
 
 #endif // BUDGETAPP_H

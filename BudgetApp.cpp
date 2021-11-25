@@ -24,3 +24,51 @@ void BudgetApp::loginUser() {
         userBudget = new UserBudget(userManager.getLoggedInUserId(), NAME_FILE_WITH_INCOMES, NAME_FILE_WITH_EXPENSES);
     }
 }
+
+void BudgetApp::logoutUser() {
+    userManager.logoutUser();
+    delete userBudget;
+    userBudget = nullptr;
+}
+
+void BudgetApp::addIncome() {
+    if (userManager.isUserLoggedIn())
+        userBudget->addIncome();
+}
+
+void BudgetApp::addExpense() {
+    if (userManager.isUserLoggedIn())
+        userBudget->addExpense();
+}
+
+void BudgetApp::displayBalanceCurrentMonth() {
+    userBudget->displayBalanceCurrentMonth();
+}
+
+void BudgetApp::displayBalancePreviousMonth() {
+    userBudget->displayBalancePreviousMonth();
+}
+
+void BudgetApp::displayBalanceChosenPeriod() {
+    userBudget->displayBalanceChosenPeriod();
+}
+
+bool BudgetApp::isUserLogin() {
+    if (userManager.isUserLoggedIn())
+        return true;
+    else
+        return false;
+}
+
+char BudgetApp::selectOptionFromMainMenu() {
+    return userManager.selectOptionFromMainMenu();
+}
+
+char BudgetApp::selectOptionFormUserMenu() {
+    return userManager.selectOptionFormUserMenu();
+}
+
+void BudgetApp::displayStatementWhenUserMakeWrongChoice() {
+    cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+    system("pause");
+}

@@ -59,6 +59,7 @@ void UserBudget::displayBalance(vector<Item> selectedIncomes, vector<Item> selec
     cout << setw(11) << left << "PRZYCHODY:" << setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) << " zl" << endl;
     cout << setw(11) << left << "WYDATKI:" <<  setw(10) << right << expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl << endl;
     cout << setw(11) << left << "BILANS:" <<  setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) - expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl;
+    system("pause");
 }
 
 void UserBudget::displayBudgetItems(vector<Item> budgetItem) {
