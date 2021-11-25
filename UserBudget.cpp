@@ -31,18 +31,17 @@ void UserBudget::displayBalancePreviousMonth()
 }
 
 void UserBudget::displayTitleOfBalanceCurrentMonth() {
+    system("cls");
     cout << "                    BILANS OBECNEGO MIESIACA                   " << endl;
 }
 
 void UserBudget::displayTitleOfBalancePreviousMonth()
 {
+    system("cls");
     cout << "                  BILANS POPRZEDNIEGO MIESIACA                 " << endl;
 }
 
 void UserBudget::displayBalance(vector<Item> selectedIncomes, vector<Item> selectedExpenses) {
-    double sumOfIncomes = BudgetItem::sumAmountOfBudgetItems(selectedIncomes);
-    double sumOfExpenses = BudgetItem::sumAmountOfBudgetItems(selectedExpenses);
-
     cout << "---------------------------------------------------------------" << endl;
     cout << "                            PRZYCHODY                          " << endl << endl;
     displayBudgetItems(selectedIncomes);
@@ -50,9 +49,9 @@ void UserBudget::displayBalance(vector<Item> selectedIncomes, vector<Item> selec
     cout << "                             WYDATKI                           " << endl << endl;
     displayBudgetItems(selectedExpenses);
     cout << endl << "---------------------------------------------------------------" << endl;
-    cout << setw(11) << left << "PRZYCHODY:" << setw(10) << right << sumOfIncomes << " zl" << endl;
-    cout << setw(11) << left << "WYDATKI:" <<  setw(10) << right << sumOfExpenses << " zl" << endl << endl;
-    cout << setw(11) << left << "BILANS:" <<  setw(10) << right << sumOfIncomes - sumOfExpenses << " zl" << endl;
+    cout << setw(11) << left << "PRZYCHODY:" << setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) << " zl" << endl;
+    cout << setw(11) << left << "WYDATKI:" <<  setw(10) << right << expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl << endl;
+    cout << setw(11) << left << "BILANS:" <<  setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) - expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl;
 }
 
 void UserBudget::displayBudgetItems(vector<Item> budgetItem) {

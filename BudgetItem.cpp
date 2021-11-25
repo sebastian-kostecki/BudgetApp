@@ -68,21 +68,18 @@ vector<Item> BudgetItem::selectBudgetItemsCurrentMonth() {
     return currentMonthBudgetItems;
 }
 
-vector<Item> BudgetItem::selectBudgetItemsPreviousMonth()
-{
+vector<Item> BudgetItem::selectBudgetItemsPreviousMonth() {
     vector<Item> previousMonthBudgetItems;
-     for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
+    for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
         if (DateOperations::isDateBelongsToPreviousMonth(itr -> getDate()))
             previousMonthBudgetItems.push_back(*itr);
     }
     return previousMonthBudgetItems;
 }
 
-double BudgetItem::sumAmountOfBudgetItems(vector<Item> items)
-{
-    double sum;
+double BudgetItem::sumAmountOfBudgetItems(vector<Item> items) {
+    double sum = 0;
     for (vector<Item>::iterator itr = items.begin(); itr != items.end(); ++itr) {
-        if (DateOperations::isDateBelongsToCurrentMonth(itr -> getDate()))
             sum += itr -> getAmount();
     }
     return sum;

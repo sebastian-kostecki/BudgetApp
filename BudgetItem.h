@@ -14,7 +14,6 @@ class BudgetItem
 {
 protected:
     vector<Item> budgetItems;
-    double *totalOfBudgetItems;
 
     Item addContentToBudgetItem(int lastItemId, int loggedInUserId);
     int getDateOfItem();
@@ -25,7 +24,7 @@ protected:
 public:
     vector<Item> selectBudgetItemsCurrentMonth();
     vector<Item> selectBudgetItemsPreviousMonth();
-    static double sumAmountOfBudgetItems(vector<Item> items);
+    double sumAmountOfBudgetItems(vector<Item> items);
 };
 
 #endif // BUDGETITEM_H
