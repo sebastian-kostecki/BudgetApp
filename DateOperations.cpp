@@ -19,20 +19,6 @@ string DateOperations::removeDashesFromDate(string date) {
     return date;
 }
 
-int DateOperations::getNumberOfDaysCurrentMonth() {
-    int dayInSeconds = 24*60*60;
-    time_t timeInSeconds;
-    struct tm *dateTime;
-    time(&timeInSeconds);
-    dateTime = localtime(&timeInSeconds);
-    dateTime->tm_mon = dateTime->tm_mon + 1;
-    dateTime->tm_mday = 1;
-    timeInSeconds = mktime(dateTime);
-    timeInSeconds = timeInSeconds - dayInSeconds;
-    dateTime = localtime(&timeInSeconds);
-    return dateTime->tm_mday;
-}
-
 int DateOperations::getNumberOfYearToday() {
     int yearInt;
     char date[64];
