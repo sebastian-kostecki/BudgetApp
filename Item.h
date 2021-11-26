@@ -24,7 +24,7 @@ public:
     void setDate(int date);
     void setItem(string item);
     void setAmount(double amount);
-    bool operator < (const Item& rhs);
+    bool operator < (const Item& item);
 };
 
 #endif // ITEM_H

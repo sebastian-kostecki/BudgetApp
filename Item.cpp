@@ -41,6 +41,6 @@ void Item::setAmount(double amount) {
     this -> amount = amount;
 }
 
-bool Item::operator < (const Item& rhs) {
-    return this -> date < rhs.date;
+bool Item::operator < (const Item& item) {
+    return this -> date < item.date;
 }
