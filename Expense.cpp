@@ -11,4 +11,6 @@ void Expense::addExpense(int loggedInUserId) {
     item = addContentToBudgetItem(fileWithExpenses.getLastItemId(), loggedInUserId);
     budgetItems.push_back(item);
     fileWithExpenses.addBudgetItemToFile(item);
+    cout << endl << "Wydatek dodano" << endl << endl;
+    system("pause");
 }

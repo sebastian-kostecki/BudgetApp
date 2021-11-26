@@ -11,4 +11,6 @@ void Income::addIncome(int loggedInUserId) {
     item = addContentToBudgetItem(fileWithIncomes.getLastItemId(), loggedInUserId);
     budgetItems.push_back(item);
     fileWithIncomes.addBudgetItemToFile(item);
+    cout << endl << "Przychod dodano" << endl << endl;
+    system("pause");
 }
