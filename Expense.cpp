@@ -1,10 +1,10 @@
-#include "Expenses.h"
+#include "Expense.h"
 
-Expenses::Expenses(string nameFileWithExpenses, int loggedInUserId) : fileWithExpenses(nameFileWithExpenses) {
+Expense::Expense(string nameFileWithExpenses, int loggedInUserId) : fileWithExpenses(nameFileWithExpenses) {
     budgetItems = fileWithExpenses.loadBudgetItemFromFile(loggedInUserId);
 }
 
-void Expenses::addExpense(int loggedInUserId)
+void Expense::addExpense(int loggedInUserId)
 {
     Item item;
     system("cls");

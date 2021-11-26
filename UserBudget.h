@@ -5,16 +5,16 @@
 #include <vector>
 #include <iomanip>
 
-#include "Incomes.h"
-#include "Expenses.h"
+#include "Income.h"
+#include "Expense.h"
 
 using namespace std;
 
 class UserBudget
 {
     const int LOGGED_IN_USER_ID;
-    Incomes incomes;
-    Expenses expenses;
+    Income incomes;
+    Expense expenses;
 
     void displayBalance(vector<Item> selectedIncomes, vector<Item> selectedExpenses);
     void displayBudgetItems(vector<Item> budgetItem);

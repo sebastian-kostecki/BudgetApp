@@ -1,5 +1,5 @@
-#ifndef INCOMES_H
-#define INCOMES_H
+#ifndef INCOME_H
+#define INCOME_H
 
 #include <iostream>
 
@@ -11,13 +11,13 @@
 
 using namespace std;
 
-class Incomes :public BudgetItem
+class Income :public BudgetItem
 {
     FileWithIncomes fileWithIncomes;
 
 public:
-    Incomes(string nameFileWithIncomes, int loggedInUserId);
+    Income(string nameFileWithIncomes, int loggedInUserId);
     void addIncome(int loggedInUserId);
 };
 
-#endif // INCOMES_H
+#endif // INCOME_H

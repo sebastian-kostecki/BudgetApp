@@ -56,39 +56,6 @@ int main() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//test FileWithUsers
-#include "User.h"
-#include "FileWithUsers.h"
-
-
-
-//test UserManager
-#include "UserManager.h"
-
-int user_main() {
-    UserManager manager("users-test.xml");
-    //manager.setLoggedUserId(15);
-    //manager.changeUserPassword();
-    manager.loginUser();
-    //manager.showUsers();
-    return 0;
-}
-
-
 //testy UserBudget
 #include "UserBudget.h"
 

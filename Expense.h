@@ -1,5 +1,5 @@
-#ifndef EXPENSES_H
-#define EXPENSES_H
+#ifndef EXPENSE_H
+#define EXPENSE_H
 
 #include <iostream>
 #include <vector>
@@ -11,13 +11,13 @@
 
 using namespace std;
 
-class Expenses :public BudgetItem
+class Expense :public BudgetItem
 {
     FileWithExpenses fileWithExpenses;
 
 public:
-    Expenses(string nameFileWithExpenses, int loggedInUserId);
+    Expense(string nameFileWithExpenses, int loggedInUserId);
     void addExpense(int loggedInUserId);
 };
 
-#endif // EXPENSES_H
+#endif // EXPENSE_H
