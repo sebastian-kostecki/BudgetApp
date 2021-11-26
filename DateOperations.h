@@ -26,6 +26,7 @@ public:
     static bool isDateBelongsToChosenPeriod(int dateInt, string startingDate, string endDate);
     static string getStartingDate();
     static string getEndDate();
+    static bool isDateLater(string startingDate, string endDate);
 };
 
 #endif // DATEOPERATIONS_H

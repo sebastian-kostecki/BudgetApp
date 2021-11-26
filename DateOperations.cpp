@@ -196,3 +196,24 @@ string DateOperations::getEndDate() {
     } while (DateOperations::isDateCorrect(endDate) == false);
     return endDate;
 }
+
+bool DateOperations::isDateLater(string startingDate, string endDate) {
+    int yearStartingDate = getIntegerNumberOfYearFromDate(startingDate);
+    int monthStartingDate = getIntegerNumberOfMonthFromDate(startingDate);
+    int daysStartingDate = getIntegerNumberOfDaysFromDate(startingDate);
+    int yearEndDate = getIntegerNumberOfYearFromDate(endDate);
+    int monthEndDate = getIntegerNumberOfMonthFromDate(endDate);
+    int daysEndDate = getIntegerNumberOfDaysFromDate(endDate);
+
+    if (yearStartingDate > yearEndDate) {
+        cout << "Podana data jest nieprawidlowa!" << endl;
+        return false;
+    } else if (yearStartingDate == yearEndDate && monthStartingDate > monthEndDate) {
+        cout << "Podana data jest nieprawidlowa!" << endl;
+        return false;
+    } else if (yearStartingDate == yearEndDate && monthStartingDate == monthEndDate && daysStartingDate >= daysEndDate) {
+        cout << "Podana data jest nieprawidlowa!" << endl;
+        return false;
+    }
+    return true;
+}

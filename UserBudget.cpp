@@ -26,7 +26,10 @@ void UserBudget::displayBalancePreviousMonth() {
 void UserBudget::displayBalanceChosenPeriod() {
     system("cls");
     string startingDate = DateOperations::getStartingDate();
-    string endDate = DateOperations::getEndDate();
+    string endDate;
+    do {
+        endDate = DateOperations::getEndDate();
+    } while (DateOperations::isDateLater(startingDate, endDate) == false);
 
     system("cls");
     cout << "        BILANS W OKRESIE OD "  << startingDate << " DO " << endDate << "          " << endl;
