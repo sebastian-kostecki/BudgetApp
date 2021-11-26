@@ -1,15 +1,16 @@
-#include "Expenses.h"
+#include "Expense.h"
 
-Expenses::Expenses(string nameFileWithExpenses, int loggedInUserId) : fileWithExpenses(nameFileWithExpenses) {
+Expense::Expense(string nameFileWithExpenses, int loggedInUserId) : fileWithExpenses(nameFileWithExpenses) {
     budgetItems = fileWithExpenses.loadBudgetItemFromFile(loggedInUserId);
 }
 
-void Expenses::addExpense(int loggedInUserId)
-{
+void Expense::addExpense(int loggedInUserId) {
     Item item;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;
     item = addContentToBudgetItem(fileWithExpenses.getLastItemId(), loggedInUserId);
     budgetItems.push_back(item);
     fileWithExpenses.addBudgetItemToFile(item);
+    cout << endl << "Wydatek dodano" << endl << endl;
+    system("pause");
 }

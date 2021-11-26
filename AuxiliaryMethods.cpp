@@ -54,3 +54,17 @@ string AuxiliaryMethods::convertDoubleToString(double number) {
     string str = ss.str();
     return str;
 }
+
+int AuxiliaryMethods::convertToAmountBeforeDot(double amount) {
+    int amountBeforeDot = amount;
+    return amountBeforeDot;
+}
+string AuxiliaryMethods::convertToAmountAfterDot(double amount) {
+    string const SYMBOL_OF_TWO_ZERO = "00";
+    int amountAftedDot = amount * 100;
+    amountAftedDot %= 100;
+    if (amountAftedDot == 0)
+        return SYMBOL_OF_TWO_ZERO;
+    else
+        return convertIntegerToString(amountAftedDot);
+}

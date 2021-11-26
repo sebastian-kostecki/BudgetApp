@@ -10,8 +10,7 @@
 
 using namespace std;
 
-class FileWithUsers
-{
+class FileWithUsers {
     const string LABEL_OF_USERS;
     const string LABEL_OF_USER;
     const string LABEL_OF_NAME;

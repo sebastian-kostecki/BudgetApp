@@ -14,6 +14,8 @@ public:
     static double convertStringToDouble(string number);
     static string convertIntegerToString(int number);
     static string convertDoubleToString(double number);
+    static int convertToAmountBeforeDot(double amount);
+    static string convertToAmountAfterDot(double amount);
 };
 
 #endif // AUXILIARYMETHODS_H
