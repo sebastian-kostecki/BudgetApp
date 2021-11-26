@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main() {
+int _main() {
     BudgetApp budgetApp("users.xml", "incomes.xml", "expenses.xml");
 
     while (true) {
@@ -59,11 +59,11 @@ int main() {
 //testy UserBudget
 #include "UserBudget.h"
 
-int us_main() {
+int main() {
     UserBudget budget(1, "incomes-test.xml", "expenses-test.xml");
     //budget.displayBalanceCurrentMonth();
-    //budget.displayBalancePreviousMonth();
-    budget.displayBalanceChosenPeriod();
+    budget.displayBalancePreviousMonth();
+    //budget.displayBalanceChosenPeriod();
     //budget.addExpense();
     //budget.addIncome();
 }

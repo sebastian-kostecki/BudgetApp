@@ -34,22 +34,25 @@ void UserBudget::displayBalanceChosenPeriod() {
 }
 
 void UserBudget::displayBalance(vector<Item> selectedIncomes, vector<Item> selectedExpenses) {
-    cout << "---------------------------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------" << endl;
     cout << "                            PRZYCHODY                          " << endl << endl;
     displayBudgetItems(selectedIncomes);
-    cout << endl << "---------------------------------------------------------------" << endl;
+    cout << endl << "------------------------------------------------------------------" << endl;
     cout << "                             WYDATKI                           " << endl << endl;
     displayBudgetItems(selectedExpenses);
-    cout << endl << "---------------------------------------------------------------" << endl;
-    cout << setw(11) << left << "PRZYCHODY:" << setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) << " zl" << endl;
-    cout << setw(11) << left << "WYDATKI:" <<  setw(10) << right << expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl << endl;
-    cout << setw(11) << left << "BILANS:" <<  setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) - expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl << endl;
+    cout << endl << "------------------------------------------------------------------" << endl;
+    cout << setw(11) << left << "PRZYCHODY:" << setw(10) << right << AuxiliaryMethods::convertToAmountBeforeDot(incomes.sumAmountOfBudgetItems(selectedIncomes)) << ".";
+    cout << AuxiliaryMethods::convertToAmountAfterDot(incomes.sumAmountOfBudgetItems(selectedIncomes)) << " zl" << endl;
+    cout << setw(11) << left << "WYDATKI:" <<  setw(10) << right << AuxiliaryMethods::convertToAmountBeforeDot(expenses.sumAmountOfBudgetItems(selectedExpenses)) << ".";
+    cout << AuxiliaryMethods::convertToAmountAfterDot(expenses.sumAmountOfBudgetItems(selectedExpenses)) << " zl" << endl << endl;
+    cout << setw(11) << left << "BILANS:" <<  setw(10) << right << AuxiliaryMethods::convertToAmountBeforeDot(incomes.sumAmountOfBudgetItems(selectedIncomes) - expenses.sumAmountOfBudgetItems(selectedExpenses)) << ".";
+    cout << AuxiliaryMethods::convertToAmountAfterDot(incomes.sumAmountOfBudgetItems(selectedIncomes) - expenses.sumAmountOfBudgetItems(selectedExpenses)) << " zl" << endl << endl;
     system("pause");
 }
 
 void UserBudget::displayBudgetItems(vector<Item> budgetItem) {
     int counter = 1;
-    cout << "-Lp.------Data-----------------Nazwa------------------Kwota----" << endl << endl;
+    cout << "-Lp.------Data-----------------Nazwa--------------------Kwota-----" << endl << endl;
     for (vector<Item>::iterator itr = budgetItem.begin(); itr != budgetItem.end(); ++itr) {
         displayItem(*itr, counter);
         counter++;
@@ -60,5 +63,6 @@ void UserBudget::displayItem(Item item, int counter) {
     cout << setw(4) << right << counter << ".| ";
     cout << DateOperations::changeIntegerDateToStringWithDashes(item.getDate()) << "  ";
     cout << setw(30) << left << item.getItem() << " ";
-    cout << setw(10) << right << item.getAmount() << " zl" << endl;
+    cout << setw(10) << right << AuxiliaryMethods::convertToAmountBeforeDot(item.getAmount()) << ".";
+    cout << setw(2) << AuxiliaryMethods::convertToAmountAfterDot(item.getAmount()) << " zl" << endl;
 }
