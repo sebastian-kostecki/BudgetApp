@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "Item.h"
 #include "AuxiliaryMethods.h"
@@ -22,9 +23,9 @@ protected:
     char selectDateTodayOrAnother();
 
 public:
-    vector<Item> selectBudgetItemsCurrentMonth();
-    vector<Item> selectBudgetItemsPreviousMonth();
-    vector<Item> selectBudgetItemsChosenPeriod(string startingDate, string endDate);
+    vector<Item> selectSortedBudgetItemsCurrentMonth();
+    vector<Item> selectSortedBudgetItemsPreviousMonth();
+    vector<Item> selectSortedBudgetItemsChosenPeriod(string startingDate, string endDate);
     double sumAmountOfBudgetItems(vector<Item> items);
 };
 

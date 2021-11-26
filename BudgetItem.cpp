@@ -11,38 +11,23 @@ Item BudgetItem::addContentToBudgetItem(int lastItemId, int loggedInUserId) {
 }
 
 int BudgetItem::getDateOfItem() {
-    int dateInteger;
+    int dateInteger = 0;
     switch (selectDateTodayOrAnother()) {
     case '1':
         dateInteger = DateOperations::getDateTodayInInteger();
+        cout << endl << "Data: " << DateOperations::changeIntegerDateToStringWithDashes(dateInteger) << endl;
         break;
     case '2':
         string dateString = "";
         do {
-            cout << "Podaj date (rrrr-mm-dd): ";
+            cout << endl << "Podaj date (rrrr-mm-dd): ";
             dateString = AuxiliaryMethods::loadLine();
         } while (DateOperations::isDateCorrect(dateString) == false);
         dateString = DateOperations::removeDashesFromDate(dateString);
-        dateInteger = AuxiliaryMethods::convertStringToInt(dateString);
+        dateInteger = AuxiliaryMethods::convertStringToInteger(dateString);
         break;
     }
     return dateInteger;
-}
-
-string BudgetItem::getNameOfItem() {
-    string nameOfItem = "";
-    cout << endl << "Podaj nazwe: ";
-    nameOfItem = AuxiliaryMethods::loadLine();
-    return nameOfItem;
-}
-
-double BudgetItem::getAmountOfItem() {
-    double amountOfItem = 0;
-    string amountOfItemAsString = "";
-    cout << "Podaj kwote: ";
-    amountOfItemAsString = AuxiliaryMethods::loadLine();
-    amountOfItem = AuxiliaryMethods::convertStringToDouble(amountOfItemAsString);
-    return amountOfItem;
 }
 
 char BudgetItem::selectDateTodayOrAnother() {
@@ -59,38 +44,56 @@ char BudgetItem::selectDateTodayOrAnother() {
     return choice;
 }
 
-vector<Item> BudgetItem::selectBudgetItemsCurrentMonth() {
+string BudgetItem::getNameOfItem() {
+    string nameOfItem = "";
+    cout << "Podaj nazwe: ";
+    nameOfItem = AuxiliaryMethods::loadLine();
+    return nameOfItem;
+}
+
+double BudgetItem::getAmountOfItem() {
+    double amountOfItem = 0;
+    string amountOfItemAsString = "";
+    cout << "Podaj kwote: ";
+    amountOfItemAsString = AuxiliaryMethods::loadLine();
+    amountOfItem = AuxiliaryMethods::convertStringToDouble(amountOfItemAsString);
+    return amountOfItem;
+}
+
+vector<Item> BudgetItem::selectSortedBudgetItemsCurrentMonth() {
     vector<Item> currentMonthBudgetItems;
     for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
         if (DateOperations::isDateBelongsToCurrentMonth(itr -> getDate()))
             currentMonthBudgetItems.push_back(*itr);
     }
+    sort(currentMonthBudgetItems.begin(), currentMonthBudgetItems.end());
     return currentMonthBudgetItems;
 }
 
-vector<Item> BudgetItem::selectBudgetItemsPreviousMonth() {
+vector<Item> BudgetItem::selectSortedBudgetItemsPreviousMonth() {
     vector<Item> previousMonthBudgetItems;
     for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
         if (DateOperations::isDateBelongsToPreviousMonth(itr -> getDate()))
             previousMonthBudgetItems.push_back(*itr);
     }
+    sort(previousMonthBudgetItems.begin(), previousMonthBudgetItems.end());
     return previousMonthBudgetItems;
 }
 
-vector<Item> BudgetItem::selectBudgetItemsChosenPeriod(string startingDate, string endDate)
-{
+vector<Item> BudgetItem::selectSortedBudgetItemsChosenPeriod(string startingDate, string endDate) {
     vector<Item> chosenPeriodBudgetItems;
     for (vector<Item>::iterator itr = budgetItems.begin(); itr != budgetItems.end(); ++itr) {
         if (DateOperations::isDateBelongsToChosenPeriod(itr -> getDate(), startingDate, endDate))
             chosenPeriodBudgetItems.push_back(*itr);
     }
+    sort(chosenPeriodBudgetItems.begin(), chosenPeriodBudgetItems.end());
     return chosenPeriodBudgetItems;
 }
 
 double BudgetItem::sumAmountOfBudgetItems(vector<Item> items) {
     double sum = 0;
     for (vector<Item>::iterator itr = items.begin(); itr != items.end(); ++itr) {
-            sum += itr -> getAmount();
+        sum += itr -> getAmount();
     }
     return sum;
 }

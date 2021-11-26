@@ -14,7 +14,7 @@ void FileWithExpenses::addBudgetItemToFile(Item item) {
         xml.AddElem(LABEL_OF_USER_ID, AuxiliaryMethods::convertIntegerToString(item.getUserId()));
         xml.AddElem(LABEL_OF_DATE, DateOperations::changeIntegerDateToStringWithDashes(item.getDate()));
         xml.AddElem(LABEL_OF_ITEM, item.getItem());
-        xml.AddElem(LABEL_OF_AMOUNT, AuxiliaryMethods::convertDoubleNumberToString(item.getAmount()));
+        xml.AddElem(LABEL_OF_AMOUNT, AuxiliaryMethods::convertDoubleToString(item.getAmount()));
         xml.Save(NAME_FILE_WITH_BUDGET_ITEMS);
     } else {
         xml.AddElem(LABEL_OF_EXPENSES);
@@ -25,7 +25,7 @@ void FileWithExpenses::addBudgetItemToFile(Item item) {
         xml.AddElem(LABEL_OF_USER_ID, AuxiliaryMethods::convertIntegerToString(item.getUserId()));
         xml.AddElem(LABEL_OF_DATE, DateOperations::changeIntegerDateToStringWithDashes(item.getDate()));
         xml.AddElem(LABEL_OF_ITEM, item.getItem());
-        xml.AddElem(LABEL_OF_AMOUNT, AuxiliaryMethods::convertDoubleNumberToString(item.getAmount()));
+        xml.AddElem(LABEL_OF_AMOUNT, AuxiliaryMethods::convertDoubleToString(item.getAmount()));
         xml.Save(NAME_FILE_WITH_BUDGET_ITEMS);
     }
     lastItemId++;
