@@ -2,17 +2,13 @@
 #define EXPENSE_H
 
 #include <iostream>
-#include <vector>
 
-#include "User.h"
-#include "AuxiliaryMethods.h"
 #include "FileWithExpenses.h"
 #include "BudgetItem.h"
 
 using namespace std;
 
-class Expense :public BudgetItem
-{
+class Expense :public BudgetItem {
     FileWithExpenses fileWithExpenses;
 
 public:

@@ -8,8 +8,7 @@
 
 using namespace std;
 
-class DateOperations
-{
+class DateOperations {
     static int getNumberOfYearToday();
     static int getNumberOfMonthToday();
     static int getNumberOfDaysForChosenDate(int year, int month);

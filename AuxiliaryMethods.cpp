@@ -55,13 +55,11 @@ string AuxiliaryMethods::convertDoubleToString(double number) {
     return str;
 }
 
-int AuxiliaryMethods::convertToAmountBeforeDot(double amount)
-{
+int AuxiliaryMethods::convertToAmountBeforeDot(double amount) {
     int amountBeforeDot = amount;
     return amountBeforeDot;
 }
-string AuxiliaryMethods::convertToAmountAfterDot(double amount)
-{
+string AuxiliaryMethods::convertToAmountAfterDot(double amount) {
     string const SYMBOL_OF_TWO_ZERO = "00";
     int amountAftedDot = amount * 100;
     amountAftedDot %= 100;

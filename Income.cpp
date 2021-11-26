@@ -4,8 +4,7 @@ Income::Income(string nameFileWithIncomes, int loggedInUserId) : fileWithIncomes
     budgetItems = fileWithIncomes.loadBudgetItemFromFile(loggedInUserId);
 };
 
-void Income::addIncome(int loggedInUserId)
-{
+void Income::addIncome(int loggedInUserId) {
     Item item;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;

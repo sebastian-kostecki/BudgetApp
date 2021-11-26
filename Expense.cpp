@@ -4,8 +4,7 @@ Expense::Expense(string nameFileWithExpenses, int loggedInUserId) : fileWithExpe
     budgetItems = fileWithExpenses.loadBudgetItemFromFile(loggedInUserId);
 }
 
-void Expense::addExpense(int loggedInUserId)
-{
+void Expense::addExpense(int loggedInUserId) {
     Item item;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO WYDATKU <<< " << endl << endl;

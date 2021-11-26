@@ -10,8 +10,7 @@
 
 using namespace std;
 
-class UserBudget
-{
+class UserBudget {
     const int LOGGED_IN_USER_ID;
     Income incomes;
     Expense expenses;

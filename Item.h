@@ -5,8 +5,7 @@
 
 using namespace std;
 
-class Item
-{
+class Item {
     int id;
     int userId;
     int date;
