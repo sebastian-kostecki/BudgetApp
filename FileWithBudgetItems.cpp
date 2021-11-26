@@ -20,12 +20,12 @@ vector<Item> FileWithBudgetItems::loadBudgetItemFromFile(int loggedUserId) {
         while (xml.FindElem()) {
             xml.IntoElem();
             xml.FindElem();
-            item.setId(AuxiliaryMethods::convertStringToInt(xml.GetData()));
+            item.setId(AuxiliaryMethods::convertStringToInteger(xml.GetData()));
             lastItemId = item.getId();
             xml.FindElem();
-            item.setUserId(AuxiliaryMethods::convertStringToInt(xml.GetData()));
+            item.setUserId(AuxiliaryMethods::convertStringToInteger(xml.GetData()));
             xml.FindElem();
-            item.setDate(AuxiliaryMethods::convertStringToInt(DateOperations::removeDashesFromDate(xml.GetData())));
+            item.setDate(AuxiliaryMethods::convertStringToInteger(DateOperations::removeDashesFromDate(xml.GetData())));
             xml.FindElem();
             item.setItem(xml.GetData());
             xml.FindElem();

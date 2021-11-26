@@ -6,14 +6,6 @@ string AuxiliaryMethods::loadLine() {
     return input;
 }
 
-int AuxiliaryMethods::convertStringToInt(string number) {
-    int integerNumber;
-    istringstream iss(number);
-    iss >> integerNumber;
-
-    return integerNumber;
-}
-
 char AuxiliaryMethods::loadSign() {
     string input = "";
     char sign  = {0};
@@ -30,31 +22,33 @@ char AuxiliaryMethods::loadSign() {
     return sign;
 }
 
-double AuxiliaryMethods::convertStringToDouble(string number)
-{
+int AuxiliaryMethods::convertStringToInteger(string number) {
+    int integerNumber;
+    istringstream iss(number);
+    iss >> integerNumber;
+    return integerNumber;
+}
+
+double AuxiliaryMethods::convertStringToDouble(string number) {
     double integerNumber;
 
-    for (int i = 0; i < number.length(); i++)
-    {
+    for (int i = 0; i < number.length(); i++) {
         if (number[i] == ',')
             number.replace(i, 1, ".");
     }
     istringstream iss(number);
     iss >> integerNumber;
-
     return integerNumber;
 }
 
-string AuxiliaryMethods::convertIntegerToString(int number)
-{
+string AuxiliaryMethods::convertIntegerToString(int number) {
     ostringstream ss;
     ss << number;
     string str = ss.str();
     return str;
 }
 
-string AuxiliaryMethods::convertDoubleNumberToString(double number)
-{
+string AuxiliaryMethods::convertDoubleToString(double number) {
     ostringstream ss;
     ss << number;
     string str = ss.str();

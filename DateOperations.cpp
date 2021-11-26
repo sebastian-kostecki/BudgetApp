@@ -8,7 +8,7 @@ int DateOperations::getDateTodayInInteger() {
     time(&timeInSeconds);
     dateTime = localtime(&timeInSeconds);
     strftime(date, sizeof(date), "%Y%m%d", dateTime);
-    dateInteger = AuxiliaryMethods::convertStringToInt(date);
+    dateInteger = AuxiliaryMethods::convertStringToInteger(date);
 
     return dateInteger;
 }
@@ -41,7 +41,7 @@ int DateOperations::getNumberOfYearToday() {
     time(&timeInSeconds);
     dateTime = localtime(&timeInSeconds);
     strftime(date, sizeof(date), "%Y", dateTime);
-    yearInt = AuxiliaryMethods::convertStringToInt(date);
+    yearInt = AuxiliaryMethods::convertStringToInteger(date);
     return yearInt;
 }
 
@@ -53,7 +53,7 @@ int DateOperations::getNumberOfMonthToday() {
     time(&timeInSeconds);
     dateTime = localtime(&timeInSeconds);
     strftime(date, sizeof(date), "%m", dateTime);
-    monthInt = AuxiliaryMethods::convertStringToInt(date);
+    monthInt = AuxiliaryMethods::convertStringToInteger(date);
     return monthInt;
 }
 
@@ -196,3 +196,22 @@ int DateOperations::getIntegerNumberOfDaysFromDate(string date)
     int daysInteger = atoi(daysString.c_str());
     return daysInteger;
 }
+
+string DateOperations::getStartingDate() {
+    string startingDate = "";
+    do {
+        cout << "Podaj date poczatkowa (rrrr-mm-dd): ";
+        startingDate = AuxiliaryMethods::loadLine();
+    } while (DateOperations::isDateCorrect(startingDate) == false);
+    return startingDate;
+}
+
+string DateOperations::getEndDate() {
+    string endDate = "";
+    do {
+        cout << "Podaj date koncowa    (rrrr-mm-dd): ";
+        endDate = AuxiliaryMethods::loadLine();
+    } while (DateOperations::isDateCorrect(endDate) == false);
+    return endDate;
+}
+

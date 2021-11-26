@@ -26,6 +26,8 @@ public:
     static int getIntegerNumberOfYearFromDate(string date);
     static int getIntegerNumberOfMonthFromDate(string date);
     static int getIntegerNumberOfDaysFromDate(string date);
+    static string getStartingDate();
+    static string getEndDate();
 };
 
 #endif // DATEOPERATIONS_H

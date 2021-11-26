@@ -65,7 +65,7 @@ void FileWithUsers::writeChangedUserPasswordToFile(int userId, string newPasswor
         while (xml.FindElem(LABEL_OF_USER)) {
             xml.IntoElem();
             xml.FindElem(LABEL_OF_USER_ID);
-            if (AuxiliaryMethods::convertStringToInt(xml.GetData()) == userId) {
+            if (AuxiliaryMethods::convertStringToInteger(xml.GetData()) == userId) {
                 xml.FindElem(LABEL_OF_PASSWORD);
                 xml.SetData(newPassword);
             }

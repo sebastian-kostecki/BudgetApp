@@ -12,41 +12,26 @@ void UserBudget::addExpense() {
 }
 
 void UserBudget::displayBalanceCurrentMonth() {
-    vector<Item> incomesCurrentMonth = incomes.selectBudgetItemsCurrentMonth();
-    vector<Item> expensesCurrentMonth = expenses.selectBudgetItemsCurrentMonth();
-    sort(incomesCurrentMonth.begin(), incomesCurrentMonth.end());
-    sort(expensesCurrentMonth.begin(), expensesCurrentMonth.end());
-    displayTitleOfBalanceCurrentMonth();
-    displayBalance(incomesCurrentMonth, expensesCurrentMonth);
-}
-
-void UserBudget::displayBalancePreviousMonth()
-{
-    vector<Item> incomesPreviousMonth = incomes.selectBudgetItemsPreviousMonth();
-    vector<Item> expensesPreviousMonth = expenses.selectBudgetItemsPreviousMonth();
-    sort(incomesPreviousMonth.begin(), incomesPreviousMonth.end());
-    sort(expensesPreviousMonth.begin(), expensesPreviousMonth.end());
-    displayTitleOfBalancePreviousMonth();
-    displayBalance(incomesPreviousMonth, expensesPreviousMonth);
-}
-
-void UserBudget::displayTitleOfBalanceCurrentMonth() {
     system("cls");
     cout << "                    BILANS OBECNEGO MIESIACA                   " << endl;
+    displayBalance(incomes.selectSortedBudgetItemsCurrentMonth(), expenses.selectSortedBudgetItemsCurrentMonth());
 }
 
-void UserBudget::displayTitleOfBalancePreviousMonth()
-{
+void UserBudget::displayBalancePreviousMonth() {
     system("cls");
     cout << "                  BILANS POPRZEDNIEGO MIESIACA                 " << endl;
+    displayBalance(incomes.selectSortedBudgetItemsPreviousMonth(), expenses.selectSortedBudgetItemsPreviousMonth());
 }
 
-void UserBudget::displayTitleOfBalanceChosenPeriod(string startingDate, string endDate)
-{
+void UserBudget::displayBalanceChosenPeriod() {
+    system("cls");
+    string startingDate = DateOperations::getStartingDate();
+    string endDate = DateOperations::getEndDate();
+
     system("cls");
     cout << "        BILANS W OKRESIE OD "  << startingDate << " DO " << endDate << "          " << endl;
+    displayBalance(incomes.selectSortedBudgetItemsChosenPeriod(startingDate, endDate), expenses.selectSortedBudgetItemsChosenPeriod(startingDate, endDate));
 }
-
 
 void UserBudget::displayBalance(vector<Item> selectedIncomes, vector<Item> selectedExpenses) {
     cout << "---------------------------------------------------------------" << endl;
@@ -58,7 +43,7 @@ void UserBudget::displayBalance(vector<Item> selectedIncomes, vector<Item> selec
     cout << endl << "---------------------------------------------------------------" << endl;
     cout << setw(11) << left << "PRZYCHODY:" << setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) << " zl" << endl;
     cout << setw(11) << left << "WYDATKI:" <<  setw(10) << right << expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl << endl;
-    cout << setw(11) << left << "BILANS:" <<  setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) - expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl;
+    cout << setw(11) << left << "BILANS:" <<  setw(10) << right << incomes.sumAmountOfBudgetItems(selectedIncomes) - expenses.sumAmountOfBudgetItems(selectedExpenses) << " zl" << endl << endl;
     system("pause");
 }
 
@@ -76,30 +61,4 @@ void UserBudget::displayItem(Item item, int counter) {
     cout << DateOperations::changeIntegerDateToStringWithDashes(item.getDate()) << "  ";
     cout << setw(30) << left << item.getItem() << " ";
     cout << setw(10) << right << item.getAmount() << " zl" << endl;
-}
-
-void UserBudget::displayBalanceChosenPeriod()
-{
-    string startingDate = "", endDate = "";
-    system("cls");
-    do
-    {
-        cout << "Podaj date poczatkowa (rrrr-mm-dd): ";
-        startingDate = AuxiliaryMethods::loadLine();
-    } while (DateOperations::isDateCorrect(startingDate) == false);
-
-    do
-    {
-        cout << "Podaj date koncowa (rrrr-mm-dd): ";
-        endDate = AuxiliaryMethods::loadLine();
-    } while (DateOperations::isDateCorrect(endDate) == false);
-
-    vector<Item> incomesChosenPeriod = incomes.selectBudgetItemsChosenPeriod(startingDate, endDate);
-    vector<Item> expensesChosenPeriod = expenses.selectBudgetItemsChosenPeriod(startingDate, endDate);
-
-    sort(incomesChosenPeriod.begin(), incomesChosenPeriod.end());
-    sort(expensesChosenPeriod.begin(), expensesChosenPeriod.end());
-
-    displayTitleOfBalanceChosenPeriod(startingDate, endDate);
-    displayBalance(incomesChosenPeriod, expensesChosenPeriod);
 }

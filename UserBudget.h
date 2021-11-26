@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <iomanip>
 
 #include "Incomes.h"
@@ -20,9 +19,6 @@ class UserBudget
     void displayBalance(vector<Item> selectedIncomes, vector<Item> selectedExpenses);
     void displayBudgetItems(vector<Item> budgetItem);
     void displayItem(Item item, int counter);
-    void displayTitleOfBalanceCurrentMonth();
-    void displayTitleOfBalancePreviousMonth();
-    void displayTitleOfBalanceChosenPeriod(string startingDate, string endDate);
 
 public:
     UserBudget(int loggedInUserId, string nameFileWithIncomes, string nameFileWithExpenses);
