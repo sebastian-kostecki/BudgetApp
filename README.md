@@ -1,18 +1,18 @@
 # BudgetApp
 
- Bardzo prosta konsolowa aplikacja budżetowa.
+ Very simple consol budget application.
 
 # Spis treści
-- [O aplikacji](#o-aplikacji)
-- [Czego nauczył mnie ten projekt](#czego-nauczył-mnie-ten-projekt)
+- [About application](#about-application)
+- [What have I learned](#what-have-I-learned)
 
-## O aplikacji
-- Aplikacja posiada formularz rejestracji oraz logowania, który umożliwia utworzenie własnego konta
-- Można dodawać swoje przychody i wydatki
-- Program udostępnia bilans obecnego miesiąca, poprzedniego miesiąca oraz wybranego okresu
-- Jest dostępna funkcja zmiany hasła
+## About application
+- Application let creating own account
+- You can add your incomes and expenses
+- Application have balance for current month, previous month, and selected period
+- You can change your password
 
 ## Czego nauczył mnie ten projekt
-- paradygmat programowania obiektowego
-- podstawy języka C++
-- korzystanie z pliku XML
+- basic C++ programming language
+- using Objet-Oriented Programming
+- using XML files
