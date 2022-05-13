@@ -2,7 +2,7 @@
 
  Very simple consol budget application.
 
-# Spis treści
+# Table of content
 - [About application](#about-application)
 - [What have I learned](#what-have-I-learned)
 
